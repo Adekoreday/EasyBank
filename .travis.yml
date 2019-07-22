@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "stable"
+install: npm install
+
+cache:
+  directories:
+    - "node_modules"
+
+addons:
+    code_climate:
+        repo_token: b0a7d0cb0c260ead6ab5ec781183653ca7802c047bc5228be8ef285818725770
+
+script: npm run jest
+
+after_success:
+  - npm run coverage
