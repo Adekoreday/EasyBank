@@ -1,6 +1,6 @@
 module.exports = {
   clearMocks: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'], // directory to collect coverage data
+  collectCoverage: true, // directory to collect coverage data
   coverageDirectory: 'coverage',
   moduleFileExtensions: ['js', 'json', 'jsx'],
   testEnvironment: 'jsdom',
