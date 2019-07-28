@@ -11,7 +11,7 @@ addons:
     code_climate:
         repo_token: b0a7d0cb0c260ead6ab5ec781183653ca7802c047bc5228be8ef285818725770
 
-script: npm run jest
+script: npm run test
 
 after_success:
-  - npm run coverage
+  - npm run coveralls
