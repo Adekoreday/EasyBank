@@ -1,0 +1,13 @@
+.bottom {
+    display: flex;
+    background: url('../../images/Vector.svg') no-repeat bottom;
+    background-size: cover !important;
+    height: 600px;
+    justify-content: space-around;
+}
+@media only screen and (max-width: 669px) {
+    .bottom {
+     flex-direction: column;
+    }
+
+}

@@ -1,0 +1,23 @@
+.card{
+    border-radius: 5px;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    max-height: 412px;
+    flex-basis: 304px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25);
+}
+img{
+    width: 100px;
+    height: 200px;
+}
+
+/*@media only screen and (max-width: 669px) {
+    .card{
+     width: 80%;
+     height: 30%;
+    }
+
+}*/

@@ -1,0 +1,12 @@
+export const USER_SIGNIN = 'SIGN_IN';
+export const USER_SIGNUP = 'SIGN_UP';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const OPEN_NAVBAR = 'OPEN_NAVBAR';
+export const CLOSE_NAVBAR = 'CLOSE_NAVBAR';
+export const SIGNIN_CLOSE_MODAL = 'SIGNIN_CLOSE_MODAL';
+export const SIGNIN_OPEN_MODAL = 'SIGNIN_OPEN_MODAL';
+export const SIGNUP_CLOSE_MODAL = 'SIGNUP_CLOSE_MODAL';
+export const SIGNUP_OPEN_MODAL = 'SIGNUP_OPEN_MODAL';
+export const USER_LOADING = 'USER_LOADING';
+export const CLEAR_USER_DATA = 'CLEAR_USER_DATA';
