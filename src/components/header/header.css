@@ -1,0 +1,55 @@
+/* */
+body{
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.mobile-nav{
+    display: none;
+}
+.desktop-nav{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.terms {
+    /* TERMS AND AGREEMENT */
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+text-align: center;
+
+color: #000000;
+}
+
+ .about {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+    
+    color: #000000;
+ }
+
+ .logo {
+    background: #FFFFFF;
+    border: 1px solid #5A60FF;
+    box-sizing: border-box;
+    padding: 8px;
+ }
+
+span{
+    color: #62A5E7;
+}
+
+@media only screen and (max-width: 669px) {
+    .desktop-nav{
+    display: none;
+    }
+    .mobile-nav{
+        display: inline-block;
+        padding: 10px;
+    } 
+}
