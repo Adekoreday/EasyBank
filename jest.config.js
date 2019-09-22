@@ -1,12 +1,16 @@
 module.exports = {
-  clearMocks: true,
-  collectCoverage: true,
-  coverageDirectory: 'coverage',
-  moduleFileExtensions: ['js', 'json', 'jsx'],
-  testEnvironment: 'jsdom',
-  setupFiles: ['<rootDir>__test__/setup/enzyme.config.js'],
-  testPathIgnorePatterns: ['\\\\node_modules\\\\', '<rootDir>/__tests__/setup/'],
   moduleNameMapper: {
-    '.+\\.(css|styl|less|sass|scss|png|jpg|svg|ttf|woff|woff2)$': 'identity-obj-proxy'
-  }
+    '\\.(css|scss)$': 'identity-obj-proxy'
+  },
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/jestConfig/__mocks__/fileTransformer.js'
+  },
+  moduleFileExtensions: [
+    'js',
+    'jsx'
+  ],
+  setupFilesAfterEnv: [
+    '<rootDir>/jestConfig/setupTests.js'
+  ]
 };
