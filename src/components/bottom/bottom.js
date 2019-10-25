@@ -3,7 +3,7 @@ import './bottom.css';
 import Card from '../card/card';
 import Register from '../../images/icons/register.svg';
 import Bank from '../../images/icons/bank.svg';
-
+import Save from '../../images/icons/save.svg';
 const Bottom = () => (
   <div className="bottom">
     <Card
@@ -14,7 +14,7 @@ const Bottom = () => (
     <Card
           type="homepage"
             title="SAVE"
-            imgurl={Bank} />
+            imgurl={Save} />
     <Card
           type="homepage"
           title="BANK"
