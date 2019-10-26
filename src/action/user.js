@@ -24,10 +24,10 @@ export const userLoading = status => ({
 export const sigupUser = userdetails => async (dispatch) => {
   let data;
   try {
-    const signupData = await axios.post('https://bankaandela.herokuapp.com/api/v1/auth/signup', userdetails);
-    data = signupData;
+    const response = await axios.post('https://bankaandela.herokuapp.com/api/v1/auth/signup', userdetails);
+    data = response.data;
   } catch (e) {
-    data = e.response.data;
+    data = e.response.data === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
   }
   dispatch({
     type: types.USER_SIGNUP,
@@ -37,5 +37,5 @@ export const sigupUser = userdetails => async (dispatch) => {
 
 export const clearUserData = () => ({
   type: types.CLEAR_USER_DATA,
-  data: true
+  data: {}
 });

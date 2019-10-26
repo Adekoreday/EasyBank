@@ -3,11 +3,9 @@ import React, { Component } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { withRouter } from 'react-router-dom';
 
-
-class SignIn extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
     this.state = {
       firstName: '',
       lastName: '',
@@ -22,19 +20,18 @@ class SignIn extends Component {
     };
   }
 
-  // sigupUser={this.props.sigupUser}
-  // SignUpdata={this.props.SignUpdata}
-  // userLoading={this.userLoading}
-  // loading={this.props.loading}
-
   componentDidUpdate() {
     const { SignUpdata } = this.props;
     const { status } = SignUpdata;
+    console.log(SignUpdata);
     if (status) {
-      const { msg, Data } = SignIndata;
+      const { msg, Data } = SignUpdata;
       this.props.userLoading(false);
-      if (status === 200) this.redirectToDashboard(Data);
-      this.props.notify(msg);
+      if (status === 201) {
+        this.redirectToDashboard(Data);
+      }else{
+        this.props.notify(msg);
+      }
       this.props.clearUserData();
     }
   }
@@ -42,6 +39,15 @@ class SignIn extends Component {
   myChangeHandler = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   }
+
+  redirectToDashboard = (Data) => {
+    console.log(Data);
+    const { token } = Data;
+    localStorage.setItem('token', token);
+    const { history } = this.props;
+    if (history) history.push('/userDashboard');
+  };
+
 
   validateField = (fieldName, value) => {
     const { formErrors } = this.state;
@@ -119,8 +125,6 @@ class SignIn extends Component {
       />
       <div className="indicator">{this.state.formErrors.lastName === null ? null : this.state.formErrors.lastName}</div>
         </div>
-
-
         <div className="input-field col s12">
           <input
         type="email"
@@ -133,9 +137,6 @@ class SignIn extends Component {
       />
       <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
-
-
-
         <div className="input-field col s12">
           <input
         type="password"
@@ -148,9 +149,8 @@ class SignIn extends Component {
       />
       <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
-        <button disabled={!this.state.formValid} onClick={this.handleSubmit} className="button login deep-purple accent-4" type="submit">
-          { this.props.loading
-            ? (
+        <button onClick={this.handleSubmit} className="button login deep-purple accent-4" type="submit">
+          { this.props.loading ? (
           <SyncLoader
           sizeUnit="px"
           size={15}
@@ -165,4 +165,4 @@ class SignIn extends Component {
     );
   }
 }
-export default SignIn;
+export default withRouter(SignUp);

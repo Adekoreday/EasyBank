@@ -53,6 +53,7 @@ class Home extends Component {
             userLoading={this.props.userLoading}
             clearUserData={this.props.clearUserData}
             loading={this.props.loading}
+            notify={this.notify}
             />
           </Modal>
         ) : ''}

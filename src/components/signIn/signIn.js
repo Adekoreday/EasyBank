@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { withRouter } from 'react-router-dom';
@@ -23,8 +22,11 @@ class SignIn extends Component {
     if (status) {
       const { msg, Data } = SignIndata;
       this.props.userLoading(false);
-      if (status === 200) this.redirectToDashboard(Data);
-      this.props.notify(msg);
+      if (status === 200) {
+        this.redirectToDashboard(Data);
+      }else{
+        this.props.notify(msg);
+      }
       this.props.clearUserData();
     }
   }
@@ -35,7 +37,6 @@ class SignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.myRef.current.focus();
     const { email, password } = this.state;
     this.props.userLoading(true);
     this.props.siginUser({ email, password });
@@ -44,7 +45,6 @@ class SignIn extends Component {
   blurHandler = (event) => {
     const name = event.target.id;
     const value = event.target.value;
-    // this.setState({ [name]: value });
     this.validateField(name, value);
   }
 
@@ -107,13 +107,12 @@ class SignIn extends Component {
           <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
 
-        <button disabled={!this.state.formValid} onClick= { this.handleSubmit} className="button login deep-purple accent-4" type="submit">
+        <button onClick= { this.handleSubmit} className="button login deep-purple accent-4" type="submit">
           { this.props.loading
             ? (
               <SyncLoader
           sizeUnit="px"
           size={15}
-          ref={this.myRef}
           color="#ffff"
           loading={this.props.loading}
         />
