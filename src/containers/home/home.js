@@ -50,8 +50,10 @@ class Home extends Component {
             <SignUp
             sigupUser={this.props.sigupUser}
             SignUpdata={this.props.SignUpdata}
-            userLoading={this.userLoading}
+            userLoading={this.props.userLoading}
+            clearUserData={this.props.clearUserData}
             loading={this.props.loading}
+            notify={this.notify}
             />
           </Modal>
         ) : ''}
