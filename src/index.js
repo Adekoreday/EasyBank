@@ -9,6 +9,7 @@ import Router from './Router';
 import './main.css';
 import Rootreducer from './reducers/index';
 
+
 const middleware = [thunk];
 const store = createStore(
   Rootreducer,
