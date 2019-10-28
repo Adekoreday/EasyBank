@@ -78,7 +78,7 @@ class SignUp extends Component {
       lastNameValid,  
       emailValid,
       passwordValid,
-      formValid: emailValid && passwordValid
+      formValid: emailValid && passwordValid && lastNameValid && firstNameValid
     });
   }
 
@@ -149,7 +149,7 @@ class SignUp extends Component {
       />
       <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
-        <button onClick={this.handleSubmit} className="button login deep-purple accent-4" type="submit">
+        <button disabled={!this.state.formValid}  onClick={this.handleSubmit} className="button login deep-purple accent-4" type="submit">
           { this.props.loading ? (
           <SyncLoader
           sizeUnit="px"

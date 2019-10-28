@@ -1,0 +1,17 @@
+.user_dashboard{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: flex-start;
+}
+
+.user-aside{
+    width: 15%;
+    height: 100%;
+    background-color: #FFFF;
+}
+
+.user-main{
+    background-color: #F6F8FC;
+    flex-grow: 1;
+}
