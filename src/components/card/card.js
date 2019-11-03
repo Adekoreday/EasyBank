@@ -14,10 +14,12 @@ const Card = (props) => {
       </div>
     );
   };
-  const accountcard=()=>{
-    return(<div className="card">
-      card
-    </div>);
+  const accountcard=(props)=>{
+    return(<div className="card__account">
+              <div clasName="card__account-image"><img></img></div>
+              <div className="card__account-content">content</div>
+          </div>
+          );
   }
   switch (props.type) {
     case 'homepage':

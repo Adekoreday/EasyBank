@@ -27,7 +27,7 @@ export const sigupUser = userdetails => async (dispatch) => {
     const response = await axios.post('https://bankaandela.herokuapp.com/api/v1/auth/signup', userdetails);
     data = response.data;
   } catch (e) {
-    data = e.response.data === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
+    data = e.response === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
   }
   dispatch({
     type: types.USER_SIGNUP,

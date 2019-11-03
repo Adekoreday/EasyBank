@@ -24,6 +24,7 @@ class SignIn extends Component {
       this.props.userLoading(false);
       if (status === 200) {
         this.redirectToDashboard(Data);
+        localStorage.setItem("data", JSON.stringify(Data));
       }else{
         this.props.notify(msg);
       }
@@ -50,9 +51,10 @@ class SignIn extends Component {
 
   redirectToDashboard = (Data) => {
     const { token } = Data;
+    localStorage.clear();
     localStorage.setItem('token', token);
     const { history } = this.props;
-    if (history) history.push('/userDashboard');
+    if (history) history.push('/profile');
   };
 
   validateField = (fieldName, value) => {
@@ -84,6 +86,7 @@ class SignIn extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="input-field col s12">
           <input
+        autoComplete="off"
         type="email"
         id="email"
         placeholder="email"
@@ -91,11 +94,13 @@ class SignIn extends Component {
         value={this.state.email}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        required
       />
           <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
         <div className="input-field col s12">
           <input
+        autoComplete="off"
         type="password"
         id="password"
         placeholder="password"
@@ -103,6 +108,7 @@ class SignIn extends Component {
         value={this.state.password}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        required
       />
           <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { withRouter } from 'react-router-dom';
@@ -23,12 +22,12 @@ class SignUp extends Component {
   componentDidUpdate() {
     const { SignUpdata } = this.props;
     const { status } = SignUpdata;
-    console.log(SignUpdata);
     if (status) {
       const { msg, Data } = SignUpdata;
       this.props.userLoading(false);
       if (status === 201) {
         this.redirectToDashboard(Data);
+        localStorage.setItem("data", Data);
       }else{
         this.props.notify(msg);
       }
@@ -108,6 +107,8 @@ class SignUp extends Component {
         value={this.state.firstName}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
        <div className="indicator">{this.state.formErrors.firstName === null ? null : this.state.formErrors.firstName}</div>
         </div>
@@ -122,6 +123,8 @@ class SignUp extends Component {
         value={this.state.lastName}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
       <div className="indicator">{this.state.formErrors.lastName === null ? null : this.state.formErrors.lastName}</div>
         </div>
@@ -134,6 +137,8 @@ class SignUp extends Component {
         value={this.state.email}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
       <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
@@ -146,6 +151,8 @@ class SignUp extends Component {
         value={this.state.password}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
       <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
