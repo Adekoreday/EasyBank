@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
-import SideNavigation from '../sideNav/sideNav';
+import SideNavigation from '../sideNav';
 import './header.css';
 
 const Header = (props) => {

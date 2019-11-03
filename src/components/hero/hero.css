@@ -15,11 +15,19 @@
     width: 30%;
 }
 
-@keyframes example {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
+@keyframes moveInRight {
+    0%   {
+        transform: translateX(-5em);
+        opacity: 0;
+    }
+    80%  {
+        transform: translateX(2em);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
   }
 
 .hero-container{
@@ -31,6 +39,8 @@
 }
 .hero-subtitle{
     margin-top: 30px;
+    animation-name: moveInRight;
+    animation-duration: 4s;
 
 }
 

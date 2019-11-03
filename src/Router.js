@@ -11,7 +11,7 @@ const Router = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/user" exact component={User} />
-      <Route path="/userDashboard" exact component={UserDashboard} />
+      <Route path="/profile" exact component={UserDashboard} />
       <Route component={NotFound} />
     </Switch>
   </Layout>
