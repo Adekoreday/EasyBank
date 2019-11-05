@@ -14,10 +14,17 @@ const Card = (props) => {
       </div>
     );
   };
+  const accountcard=()=>{
+    return(<div className="card">
+      card
+    </div>);
+  }
   switch (props.type) {
     case 'homepage':
       template = hompagecard(props);
       break;
+    case 'account':
+      template = accountcard(props);
     default:
       template = null;
   }
