@@ -17,14 +17,13 @@ class SignIn extends Component {
   }
 
   componentDidUpdate() {
-    const { SignIndata } = this.props;
-    const { status } = SignIndata;
+    const { UserData } = this.props;
+    const { status } = UserData;
     if (status) {
-      const { msg, Data } = SignIndata;
+      const { msg, Data } = UserData;
       this.props.userLoading(false);
       if (status === 200) {
         this.redirectToDashboard(Data);
-        localStorage.setItem("data", JSON.stringify(Data));
       }else{
         this.props.notify(msg);
       }
@@ -52,6 +51,7 @@ class SignIn extends Component {
   redirectToDashboard = (Data) => {
     const { token } = Data;
     localStorage.clear();
+    localStorage.setItem('mail', this.state.email);
     localStorage.setItem('token', token);
     const { history } = this.props;
     if (history) history.push('/profile');

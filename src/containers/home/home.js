@@ -37,7 +37,7 @@ class Home extends Component {
           <Modal closeModal={this.props.signInCloseModal}>
             <SignIn
             siginUser={this.props.siginUser}
-            SignIndata={this.props.SignIndata}
+            UserData={this.props.UserData}
             userLoading={this.props.userLoading}
             loading={this.props.loading}
             clearUserData={this.props.clearUserData}
@@ -49,7 +49,7 @@ class Home extends Component {
           <Modal closeModal={this.props.signUpCloseModal}>
             <SignUp
             sigupUser={this.props.sigupUser}
-            SignUpdata={this.props.SignUpdata}
+            UserData={this.props.UserData}
             userLoading={this.props.userLoading}
             clearUserData={this.props.clearUserData}
             loading={this.props.loading}
@@ -88,20 +88,19 @@ Home.propTypes = {
   sigupUser: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   userLoading: PropTypes.func,
-  SignIndata: PropTypes.object,
-  SignUpdata: PropTypes.object,
+  UserData: PropTypes.object,
   clearUserData: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
   const { navbar, modal, user } = state;
-  const { SignIndata, SignUpdata, loading } = user;
+  const { UserData, loading } = user;
   const { navbarStatus } = navbar;
   const {
     modalStatus, signInmodalStatus, signUpmodalStatus,
   } = modal;
   return {
-    navbarStatus, modalStatus, signInmodalStatus, signUpmodalStatus, SignIndata, SignUpdata, loading
+    navbarStatus, modalStatus, signInmodalStatus, signUpmodalStatus, UserData, UserData, loading
   };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({

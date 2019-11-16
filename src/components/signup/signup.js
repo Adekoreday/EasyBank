@@ -20,14 +20,13 @@ class SignUp extends Component {
   }
 
   componentDidUpdate() {
-    const { SignUpdata } = this.props;
-    const { status } = SignUpdata;
+    const { UserData } = this.props;
+    const { status } = UserData;
     if (status) {
-      const { msg, Data } = SignUpdata;
+      const { msg, Data } = UserData;
       this.props.userLoading(false);
       if (status === 201) {
         this.redirectToDashboard(Data);
-        localStorage.setItem("data", Data);
       }else{
         this.props.notify(msg);
       }
@@ -40,9 +39,9 @@ class SignUp extends Component {
   }
 
   redirectToDashboard = (Data) => {
-    console.log(Data);
-    const { token } = Data;
+    const { token, email } = Data;
     localStorage.setItem('token', token);
+    localStorage.setItem('mail', email);
     const { history } = this.props;
     if (history) history.push('/userDashboard');
   };

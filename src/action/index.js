@@ -7,7 +7,7 @@ const {
 } = modal;
 const { openNavbar, closeNavbar } = navbar;
 const {
-  siginUser, sigupUser, userLoading, clearUserData
+  siginUser, sigupUser, userLoading, clearUserData, getUserDetails
 } = user;
 
 export {
@@ -22,5 +22,6 @@ export {
   signUpOpenModal,
   signInOpenModal,
   userLoading,
-  clearUserData
+  clearUserData,
+  getUserDetails,
 };
