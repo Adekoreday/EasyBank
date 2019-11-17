@@ -17,17 +17,16 @@ class SignIn extends Component {
   }
 
   componentDidUpdate() {
-    const { SignIndata } = this.props;
-    const { status } = SignIndata;
-    if (status) {
-      const { msg, Data } = SignIndata;
-      this.props.userLoading(false);
+    const { UserData, loading } = this.props;
+    const { status } = UserData;
+    if (status !== undefined && loading == false) {
+      const { msg, Data } = UserData;
       if (status === 200) {
         this.redirectToDashboard(Data);
       }else{
         this.props.notify(msg);
+        this.props.clearUserData();
       }
-      this.props.clearUserData();
     }
   }
 
@@ -38,7 +37,6 @@ class SignIn extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = this.state;
-    this.props.userLoading(true);
     this.props.siginUser({ email, password });
   }
 
@@ -49,10 +47,12 @@ class SignIn extends Component {
   }
 
   redirectToDashboard = (Data) => {
-    const { token } = Data;
+    const { token, email } = Data;
+    localStorage.clear();
+    localStorage.setItem('mail', email);
     localStorage.setItem('token', token);
     const { history } = this.props;
-    if (history) history.push('/userDashboard');
+    if (history) history.push('/profile');
   };
 
   validateField = (fieldName, value) => {
@@ -84,6 +84,7 @@ class SignIn extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="input-field col s12">
           <input
+        autoComplete="off"
         type="email"
         id="email"
         placeholder="email"
@@ -91,11 +92,13 @@ class SignIn extends Component {
         value={this.state.email}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        required
       />
           <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
         <div className="input-field col s12">
           <input
+        autoComplete="off"
         type="password"
         id="password"
         placeholder="password"
@@ -103,6 +106,7 @@ class SignIn extends Component {
         value={this.state.password}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        required
       />
           <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
@@ -110,7 +114,7 @@ class SignIn extends Component {
         <button disabled={!this.state.formValid}  onClick= { this.handleSubmit} className="button login deep-purple accent-4" type="submit">
           { this.props.loading
             ? (
-              <SyncLoader
+          <SyncLoader
           sizeUnit="px"
           size={15}
           color="#ffff"

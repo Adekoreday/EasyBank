@@ -10,7 +10,6 @@ import {
   signInCloseModal,
   signUpCloseModal,
   signUpOpenModal,
-  userLoading,
   signInOpenModal,
   clearUserData
 } from '../../action';
@@ -37,9 +36,9 @@ class Home extends Component {
           <Modal closeModal={this.props.signInCloseModal}>
             <SignIn
             siginUser={this.props.siginUser}
-            SignIndata={this.props.SignIndata}
-            userLoading={this.props.userLoading}
+            UserData={this.props.UserData}
             loading={this.props.loading}
+            isSignedIn={this.props.isSignedIn}
             clearUserData={this.props.clearUserData}
             notify={this.notify}
             />
@@ -49,9 +48,9 @@ class Home extends Component {
           <Modal closeModal={this.props.signUpCloseModal}>
             <SignUp
             sigupUser={this.props.sigupUser}
-            SignUpdata={this.props.SignUpdata}
-            userLoading={this.props.userLoading}
+            UserData={this.props.UserData}
             clearUserData={this.props.clearUserData}
+            isSignedUp={this.props.isSignedUp}
             loading={this.props.loading}
             notify={this.notify}
             />
@@ -87,25 +86,23 @@ Home.propTypes = {
   siginUser: PropTypes.func.isRequired,
   sigupUser: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  userLoading: PropTypes.func,
-  SignIndata: PropTypes.object,
-  SignUpdata: PropTypes.object,
+  UserData: PropTypes.object,
   clearUserData: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
   const { navbar, modal, user } = state;
-  const { SignIndata, SignUpdata, loading } = user;
+  const { UserData, loading, isSignedIn, isSignedUp } = user;
   const { navbarStatus } = navbar;
   const {
     modalStatus, signInmodalStatus, signUpmodalStatus,
   } = modal;
   return {
-    navbarStatus, modalStatus, signInmodalStatus, signUpmodalStatus, SignIndata, SignUpdata, loading
+    navbarStatus, modalStatus, signInmodalStatus,isSignedIn,isSignedUp, signUpmodalStatus, UserData, UserData, loading
   };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({
-  openModal, closeModal, openNavbar, closeNavbar, sigupUser, signInCloseModal, signUpCloseModal, signUpOpenModal, signInOpenModal, siginUser, userLoading, clearUserData
+  openModal, closeModal, openNavbar, closeNavbar, sigupUser, signInCloseModal, signUpCloseModal, signUpOpenModal, signInOpenModal, siginUser, clearUserData
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

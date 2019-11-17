@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { withRouter } from 'react-router-dom';
@@ -21,18 +20,16 @@ class SignUp extends Component {
   }
 
   componentDidUpdate() {
-    const { SignUpdata } = this.props;
-    const { status } = SignUpdata;
-    console.log(SignUpdata);
-    if (status) {
-      const { msg, Data } = SignUpdata;
-      this.props.userLoading(false);
+    const { UserData, loading } = this.props;
+    const { status } = UserData;
+    if (status !== undefined && loading == false) {
+      const { msg, Data } = UserData;
       if (status === 201) {
         this.redirectToDashboard(Data);
       }else{
         this.props.notify(msg);
+        this.props.clearUserData();
       }
-      this.props.clearUserData();
     }
   }
 
@@ -41,11 +38,11 @@ class SignUp extends Component {
   }
 
   redirectToDashboard = (Data) => {
-    console.log(Data);
-    const { token } = Data;
+    const { token, email } = Data;
     localStorage.setItem('token', token);
+    localStorage.setItem('mail', email);
     const { history } = this.props;
-    if (history) history.push('/userDashboard');
+    if (history) history.push('/profile');
   };
 
 
@@ -92,7 +89,6 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const {firstName, lastName, email, password } = this.state;
-    this.props.userLoading(true);
     this.props.sigupUser({firstName, lastName, email, password, isAdmin: false, Type: "client" });
   }
 
@@ -108,11 +104,11 @@ class SignUp extends Component {
         value={this.state.firstName}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
        <div className="indicator">{this.state.formErrors.firstName === null ? null : this.state.formErrors.firstName}</div>
         </div>
-
-
         <div className="input-field col s12">
           <input
         type="text"
@@ -122,6 +118,8 @@ class SignUp extends Component {
         value={this.state.lastName}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
       <div className="indicator">{this.state.formErrors.lastName === null ? null : this.state.formErrors.lastName}</div>
         </div>
@@ -134,6 +132,8 @@ class SignUp extends Component {
         value={this.state.email}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
       <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
@@ -146,6 +146,8 @@ class SignUp extends Component {
         value={this.state.password}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
+        autoComplete="off"
+        required
       />
       <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
