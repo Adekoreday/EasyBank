@@ -17,17 +17,16 @@ class SignIn extends Component {
   }
 
   componentDidUpdate() {
-    const { UserData } = this.props;
+    const { UserData, loading } = this.props;
     const { status } = UserData;
-    if (status) {
+    if (status !== undefined && loading == false) {
       const { msg, Data } = UserData;
-      this.props.userLoading(false);
       if (status === 200) {
         this.redirectToDashboard(Data);
       }else{
         this.props.notify(msg);
+        this.props.clearUserData();
       }
-      this.props.clearUserData();
     }
   }
 
@@ -38,7 +37,6 @@ class SignIn extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = this.state;
-    this.props.userLoading(true);
     this.props.siginUser({ email, password });
   }
 
@@ -49,9 +47,9 @@ class SignIn extends Component {
   }
 
   redirectToDashboard = (Data) => {
-    const { token } = Data;
+    const { token, email } = Data;
     localStorage.clear();
-    localStorage.setItem('mail', this.state.email);
+    localStorage.setItem('mail', email);
     localStorage.setItem('token', token);
     const { history } = this.props;
     if (history) history.push('/profile');
@@ -116,7 +114,7 @@ class SignIn extends Component {
         <button disabled={!this.state.formValid}  onClick= { this.handleSubmit} className="button login deep-purple accent-4" type="submit">
           { this.props.loading
             ? (
-              <SyncLoader
+          <SyncLoader
           sizeUnit="px"
           size={15}
           color="#ffff"

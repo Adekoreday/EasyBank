@@ -20,17 +20,16 @@ class SignUp extends Component {
   }
 
   componentDidUpdate() {
-    const { UserData } = this.props;
+    const { UserData, loading } = this.props;
     const { status } = UserData;
-    if (status) {
+    if (status !== undefined && loading == false) {
       const { msg, Data } = UserData;
-      this.props.userLoading(false);
       if (status === 201) {
         this.redirectToDashboard(Data);
       }else{
         this.props.notify(msg);
+        this.props.clearUserData();
       }
-      this.props.clearUserData();
     }
   }
 
@@ -43,7 +42,7 @@ class SignUp extends Component {
     localStorage.setItem('token', token);
     localStorage.setItem('mail', email);
     const { history } = this.props;
-    if (history) history.push('/userDashboard');
+    if (history) history.push('/profile');
   };
 
 
@@ -90,7 +89,6 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const {firstName, lastName, email, password } = this.state;
-    this.props.userLoading(true);
     this.props.sigupUser({firstName, lastName, email, password, isAdmin: false, Type: "client" });
   }
 
@@ -111,8 +109,6 @@ class SignUp extends Component {
       />
        <div className="indicator">{this.state.formErrors.firstName === null ? null : this.state.formErrors.firstName}</div>
         </div>
-
-
         <div className="input-field col s12">
           <input
         type="text"

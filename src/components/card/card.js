@@ -16,7 +16,7 @@ const Card = (props) => {
   };
   const accountcard=(props)=>{
     return(<div className="card__account">
-              <div clasName="card__account-image"><img></img></div>
+              <div clasName="card__account-caption"></div>
               <div className="card__account-content">content</div>
           </div>
           );
