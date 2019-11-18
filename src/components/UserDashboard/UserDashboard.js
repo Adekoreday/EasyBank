@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SideNav from '../sideNav';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import './UserDashBoard.css';
+import './UserDashboard.css';
 
 
 class UserDashBoard extends Component  {
