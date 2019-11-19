@@ -2,6 +2,7 @@ import React, {useLayoutEffect} from 'react';
 import Home from '../home/home';
 import UserDashboard from '../../components/UserDashboard/UserDashboard';
 import User from '../../components/user/user';
+import Spinner from '../../components/spinners/Spinner';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {getUserDetails} from '../../action';
@@ -13,7 +14,7 @@ const Auth = (props) => {
       }, []);
     return(
         <div>
-          {(authenticating == true & isAuth ==false) ? <User/> : ''}
+          {(authenticating == true & isAuth ==false) ? <Spinner/> : ''}
           { (isAuth ==true & authenticating == false ) ? <UserDashboard/> : ''}
           {(isAuth ==false & authenticating == false ) ? <Home/> : ''}
         </div>
