@@ -1,13 +1,15 @@
 import React from 'react';
-import Route from 'react-router-dom';
+import {Route, Redirect, withRouter} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
 const ProtectedRoute = ({component: Component, ...data}) => {
-    
-    <Route
+    const isAuth = useSelector(state => state.user.isAuth);
+  return(  <Route
     {...data}
-    render={() => ()}
-    />
+    render={(props) => (
+        isAuth === true ? <Component {...props}/> : <Redirect to={{pathname: '/'}}/>
+    )}
+    />);
 }
 
-export default ProtectedRoute;
+export default withRouter(ProtectedRoute);

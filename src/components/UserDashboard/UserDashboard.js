@@ -13,7 +13,22 @@ class UserDashBoard extends Component  {
     Transaction: false,
     likesDisplay: false
   };
-    
+
+  toggleState = (data) => {
+    const newState = {
+      accountsDisplay: true,
+      ProfileDisplay: false,
+      Transaction: false,
+      likesDisplay: false,
+      ...data
+    }
+
+    const initialState = {}
+    this.setState({
+       ...newState
+    })
+  }
+
   ComponentDidUpdate() {
     const {UserData} = this.props;
      if(UserData.Data.email == undefined) {
@@ -33,18 +48,28 @@ render() {
           text: 'Accounts',
           link: '/profile',
           style: 'NavItem',
+          onclick: this.toggleState,
           imgurl: '../../images/icons/ecommerce_graph2.svg' 
         },
         {
           text: 'Profile',
           link: '/profile',
           style: 'NavItem',
+          onclick: this.toggleState,
           imgurl: '../../images/icons/perm_identity-24px.svg'
         },
         {
           text: 'Transaction',
           link: '/profile',
           style: 'NavItem',
+          onclick: this.toggleState,
+          imgurl: '../../images/icons/ecommerce_dollar.svg' 
+        },
+        {
+          text: 'Navigation',
+          link: '/profile',
+          style: 'NavItem',
+          onclick: this.toggleState,
           imgurl: '../../images/icons/ecommerce_dollar.svg' 
         }
       ]}
