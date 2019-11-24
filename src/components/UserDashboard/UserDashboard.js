@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SideNav from '../sideNav';
+import Account from '../account/account';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './UserDashboard.css';
@@ -8,26 +9,38 @@ import './UserDashboard.css';
 class UserDashBoard extends Component  {
 
   state={
-    accountsDisplay: true,
-    ProfileDisplay: false,
-    Transaction: false,
-    likesDisplay: false
+    settings: {
+      accountsDisplay: true,
+      ProfileDisplay: false,
+      TransactionDisplay: false,
+      likesDisplay: false
+    }
   };
 
   toggleState = (data) => {
     const newState = {
-      accountsDisplay: true,
+      accountsDisplay: false,
       ProfileDisplay: false,
-      Transaction: false,
+      TransactionDisplay: false,
       likesDisplay: false,
       ...data
     }
-
-    const initialState = {}
     this.setState({
-       ...newState
+       settings: newState
     })
   }
+
+  showAccount = () => {
+    this.toggleState({accountsDisplay: true});
+  }
+  showProfile =() => {
+    this.toggleState({ProfileDisplay: true});
+  }
+
+  showTransaction = () => {
+    this.toggleState({TransactionDisplay: true});
+  }
+
 
   ComponentDidUpdate() {
     const {UserData} = this.props;
@@ -37,6 +50,9 @@ class UserDashBoard extends Component  {
   }
 
 render() {
+  const {
+    accountsDisplay, ProfileDisplay, TransactionDisplay, likesDisplay
+  } = this.state.settings;
   return(
   <div className="user_dashboard">
     <div className="user-aside">
@@ -48,21 +64,24 @@ render() {
           text: 'Accounts',
           link: '/profile',
           style: 'NavItem',
-          onclick: this.toggleState,
+          active: accountsDisplay,
+          onclick: this.showAccount,
           imgurl: '../../images/icons/ecommerce_graph2.svg' 
         },
         {
           text: 'Profile',
           link: '/profile',
           style: 'NavItem',
-          onclick: this.toggleState,
+          active: ProfileDisplay,
+          onclick: this.showProfile,
           imgurl: '../../images/icons/perm_identity-24px.svg'
         },
         {
           text: 'Transaction',
           link: '/profile',
           style: 'NavItem',
-          onclick: this.toggleState,
+          active: TransactionDisplay,
+          onclick: this.showTransaction,
           imgurl: '../../images/icons/ecommerce_dollar.svg' 
         },
         {
@@ -75,7 +94,11 @@ render() {
       ]}
       ></SideNav>
     </div>
-    <div className="user-main"> main dashboard</div>
+    <div className="user-main">
+    {accountsDisplay === true && <Account/>}
+    {ProfileDisplay === true && (<div>Profile page</div>)}
+    {TransactionDisplay === true && (<div>Transaction page</div>)}
+    </div>
   </div>)
 };
 }

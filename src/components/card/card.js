@@ -14,10 +14,25 @@ const Card = (props) => {
       </div>
     );
   };
+
+  /*
+  accountnumber: "5282957493"
+balance: 2000
+createdon: "2019-06-28T00:00:00.000Z"
+id: "5"
+status: "active"
+type: "savings"
+user_id: "1"
+  */
   const accountcard=(props)=>{
-    return(<div className="card__account">
-              <div clasName="card__account-caption"></div>
-              <div className="card__account-content">content</div>
+    const {details} = props;
+    const {accountnumber, balance, createdon, status, type} = details;
+    return(<div className="account__card">
+             <div className="account__card__caption">{type[0]}</div>
+             <div className="account__card__content">
+               <div>Account no</div>
+               <div><div>Balance</div> <div>status</div> <div>created</div></div>
+             </div>
           </div>
           );
   }
@@ -27,14 +42,15 @@ const Card = (props) => {
       break;
     case 'account':
       template = accountcard(props);
+      break
     default:
       template = null;
   }
   return template;
 };
 Card.propTypes = {
-  imgurl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  imgurl: PropTypes.string,
+  title: PropTypes.string
 
 }
 export default Card;
