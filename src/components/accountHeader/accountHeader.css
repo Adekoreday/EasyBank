@@ -1,0 +1,28 @@
+.account__header__container{
+    border-bottom: 1.4px solid #EAEAEA;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+
+}
+
+.account__header__content{
+    padding: 1.6rem 0rem 0rem 0rem;
+    margin: 0rem 25rem;
+    flex-grow: 1;
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.account__header--focus {
+    border-bottom: 0.3rem solid #6253F1 !important;
+}
+
+.account__header{
+    margin-right: 2.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 0.3rem solid transparent;
+}

@@ -1,5 +1,4 @@
 import asyncRequest from '../helpers/asyncRequest';
-import axios from 'axios';
 import * as types from '../actionTypes/actionTypes';
 import {getFromStorage} from '../helpers/storage';
 

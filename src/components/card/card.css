@@ -10,21 +10,80 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
 }
 
-.card__account{
+.account__card{
     display: flex;
-    justify-content: flex-start;  
+    justify-content: flex-start;
+    margin-top: 3rem;
+    padding: 3rem 3rem 0 3rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    height: 15rem;
 }
 
-.card__account-image{
-    
+.account__card__image{
+    display: inline-block;
+    width: 2.5rem;
+    height: 2rem;
 }
-.card__account-content{
 
+img{
+    margin: 0;
+    padding: 0;
+}
+.account__card__content{
+    flex-grow: 1;
+}
+.account__card__details{
+    display: flex;
+    justify-content: flex-start;
+    justify-content: space-between;
+}
+
+.account__balance{
+    margin-bottom: 1rem;
+}
+
+.card__item{
+    display: flex;
+    margin: 0;
+}
+
+.item__list{
+    margin: 0;
+    padding: 0;
+   transform: translateY(-.1rem);
+}
+
+.account__card__caption{
+    background-color: #5392F1;
+    width: 12rem;
+    height: 8rem;
+    border-radius: 1.2rem;
+    text-align: center; 
+    color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 6rem;
+}
+
+.account__card__caption__text{
+    font-size: 7.2rem;
+    margin-top: -2rem;
+}
+
+.savings{
+    background-color: #6253F1 !important;
 }
 
 img{
     width: 100px;
     height: 200px;
+}
+
+.account__balance{
+    display: flex;
 }
 
 /*@media only screen and (max-width: 669px) {

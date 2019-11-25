@@ -1,5 +1,5 @@
 .options{
-    margin: 30px 0px;
+    margin: 50px 0px;
     padding: 0px 20px;
     text-align: center;
     display: flex;
@@ -8,10 +8,9 @@
     transition: all .4s;
 }
 
-.options:hover{
+.options--focus{
     border-right: 5px solid #00008b;
 }
-
 .option__icon{
     margin-right: 20px;
     width: 25px;

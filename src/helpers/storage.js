@@ -5,7 +5,7 @@
  */
 const setToStorage = (data) => {
     Object.entries(data).forEach(([key, value]) => {
-      localStorage.setItem(key, value);
+      localStorage.setItem(`${key}`, `${value}`);
     });
   };
   

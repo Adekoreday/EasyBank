@@ -21,9 +21,9 @@ const user = (state = { ...initialState }, action) => {
       case USER_SIGNIN_REQUEST:
         return {...state, loading: true, isSignedIn: false}
       case USER_SIGNUP_SUCCESS:
-        return { ...state, loading: false, isSignedUp: true, UserData: action.data };
+        return { ...state, loading: false, isSignedUp: true, UserData: action.data};
       case USER_SIGNUP_FAILURE:
-        return { ...state, loading: false, isSignedUp: false, UserData: action.data };
+        return { ...state, loading: false, isSignedUp: false, UserData: action.data};
       case USER_SIGNUP_REQUEST:
         return {...state, loading: true, isSignedUp: false}
     case CLEAR_USER_DATA:

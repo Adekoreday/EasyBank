@@ -5,6 +5,7 @@ import User from './components/user/user';
 import NotFound from './components/NotFound/NotFound';
 import Home from './containers/home/home';
 import UserDashboard from './components/UserDashboard/UserDashboard';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 
 const Router = () => (
@@ -12,7 +13,7 @@ const Router = () => (
       <Route path="/" exact component={Auth} />
       <Route path="/user" exact component={User} />
       <Route path="/home" exact component={Home}/>
-      <Route path="/profile" exact component={UserDashboard} />
+      <ProtectedRoute path="/profile" component={UserDashboard} />
       <Route component={NotFound} />
     </Switch>
 );
