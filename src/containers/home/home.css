@@ -36,7 +36,6 @@ input[type=password]:not(.browser-default):focus:not([readOnly]) + label{
   width: 136px;
   height: 36px;
   text-align: center;
-  padding: 5px;
   cursor: pointer;
 }
 .button:hover{

@@ -14,7 +14,7 @@ const AllAccount = (props) => {
 
     ));
     return (
-    <div>{showAllAccount()}</div>
+    <div className="allaccount">{showAllAccount()}</div>
     )
 }
 

@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AccountImage from '../../images/icons/account.svg';
+import BalanceImg from '../../images/icons/balance.svg';
+import Created from '../../images/icons/created.svg';
+import Status from '../../images/icons/status.svg';
+import Moment from 'react-moment';
 import './card.css';
 
 
@@ -14,24 +19,20 @@ const Card = (props) => {
       </div>
     );
   };
-
-  /*
-  accountnumber: "5282957493"
-balance: 2000
-createdon: "2019-06-28T00:00:00.000Z"
-id: "5"
-status: "active"
-type: "savings"
-user_id: "1"
-  */
   const accountcard=(props)=>{
     const {details} = props;
     const {accountnumber, balance, createdon, status, type} = details;
     return(<div className="account__card">
-             <div className="account__card__caption">{type[0]}</div>
+             <div className={type[0] === 's' ? "savings account__card__caption " : "account__card__caption"}><div className="account__card__caption__text">{type[0]}</div></div>
              <div className="account__card__content">
-               <div>Account no</div>
-               <div><div>Balance</div> <div>status</div> <div>created</div></div>
+               <div className="account__balance"> <img className="account__card__image"  src={AccountImage} alt="card img" /> <ul className="item__list"><li>Account No</li>{accountnumber}<li></li></ul></div>
+               <div className="account__card__details">
+                 <div><div className="card__item"><img className="account__card__image" src={BalanceImg} alt="card img" /> <ul className="item__list"><li>Balance</li>{`#${balance}`}<li></li></ul></div>
+                 </div>
+                 <div className="account__balance"> <img className="account__card__image"  src={Status} alt="card img" /> <ul className="item__list"><li>status</li>{status}<li></li></ul></div>
+                 <div className="account__balance">  <img className="account__card__image"  src={Created} alt="card img" /> <ul className="item__list"><li>Created</li><Moment format="YYYY/MM/DD" date={createdon} >
+                 </Moment><li></li></ul></div>
+                </div>
              </div>
           </div>
           );

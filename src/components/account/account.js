@@ -12,9 +12,13 @@ class Account extends Component {
     constructor(props){
         super(props);
         this.state = {
-            showAllAccount: false,
+            showAllAccount: true,
             showCreateAccount: false
         }
+    }
+
+    componentDidMount() {
+        this.props.getAllAccount();  
     }
 
     ShowAllAccount = () => {    
