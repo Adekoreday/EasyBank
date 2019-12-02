@@ -24,6 +24,7 @@ html{
     width: 136px;
     height: 36px;
     text-align: center;
+    padding: 0.7rem;
     cursor: pointer;
   }
   .button:hover{

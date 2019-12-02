@@ -69,10 +69,10 @@ const Header = (props) => {
               <Link to="/user"><div className="terms button">Terms </div></Link>
               <Link to="/user"><div className="about button">About</div></Link>
               <div className="login button" onClick={props.signInOpenModal}>
-                <div>LOG IN</div>
+                LOG IN
               </div>
               <div className="signup button" onClick={props.signUpOpenModal}>
-                <div>SIGN UP</div>
+                SIGN UP
               </div>
             </div>
           </div>
