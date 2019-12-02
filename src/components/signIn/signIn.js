@@ -36,6 +36,7 @@ class SignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    if(!this.state.formValid) return;
     const { email, password } = this.state;
     this.props.siginUser({ email, password });
   }
@@ -81,37 +82,38 @@ class SignIn extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="input-field col s12">
+      <form onSubmit={this.handleSubmit} className="signin__form">
+        <div className="form-group">
           <input
+          className="Input"
         autoComplete="off"
         type="email"
         id="email"
-        placeholder="email"
+        placeholder="EMAIL"
         color="purple darken-3"
         value={this.state.email}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
-        required
       />
           <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
-        <div className="input-field col s12">
+        <div className="form-group">
           <input
+        className="Input"
         autoComplete="off"
         type="password"
         id="password"
-        placeholder="password"
+        placeholder="PASSWORD"
         color="purple darken-3"
         value={this.state.password}
         onChange={this.myChangeHandler}
         onBlur={this.blurHandler}
-        required
       />
           <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
 
-        <button disabled={!this.state.formValid}  onClick= { this.handleSubmit} className="button login deep-purple accent-4" type="submit">
+        <div className="form-group form-group--submit">  
+        <button onClick= { this.handleSubmit} className="button submit-button" type="submit">
           { this.props.loading
             ? (
           <SyncLoader
@@ -124,6 +126,7 @@ class SignIn extends Component {
             : 'Sign In'
         }
         </button>
+        </div>
       </form>
     );
   }

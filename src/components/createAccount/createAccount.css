@@ -1,0 +1,23 @@
+
+.create__account__form{
+  width: 36.4rem;
+  height: auto;
+  margin-top: 15rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: #E2EBFF;
+}
+
+
+.select{
+  border: 'none';
+  font-family: inherit;
+  font-size: 1rem;
+  text-transform: uppercase;
+
+}
+
+.createAccountContainer{
+    margin: 0rem 14rem;
+    padding: 0;
+}

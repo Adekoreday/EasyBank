@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { withRouter } from 'react-router-dom';
+import './signup.css';
 
 class SignUp extends Component {
   constructor(props) {
@@ -88,15 +89,17 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    if(!this.state.formValid) return; 
     const {firstName, lastName, email, password } = this.state;
     this.props.sigupUser({firstName, lastName, email, password, isAdmin: false, Type: "client" });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="input-field col s12">
+      <form onSubmit={this.handleSubmit} className="signup__form">
+        <div className="form-group">
           <input
+       className="Input"
         type="text"
         id="firstName"
         color="purple darken-3"
@@ -109,8 +112,9 @@ class SignUp extends Component {
       />
        <div className="indicator">{this.state.formErrors.firstName === null ? null : this.state.formErrors.firstName}</div>
         </div>
-        <div className="input-field col s12">
+        <div className="form-group">
           <input
+       className="Input"
         type="text"
         id="lastName"
         placeholder="lastName"
@@ -123,8 +127,9 @@ class SignUp extends Component {
       />
       <div className="indicator">{this.state.formErrors.lastName === null ? null : this.state.formErrors.lastName}</div>
         </div>
-        <div className="input-field col s12">
+        <div className="form-group">
           <input
+       className="Input"
         type="email"
         id="email"
         color="purple darken-3"
@@ -137,8 +142,9 @@ class SignUp extends Component {
       />
       <div className="indicator">{this.state.formErrors.email === null ? null : this.state.formErrors.email}</div>
         </div>
-        <div className="input-field col s12">
+        <div className="form-group">
           <input
+       className="Input"
         type="password"
         id="password"
         placeholder="password"
@@ -151,7 +157,8 @@ class SignUp extends Component {
       />
       <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
-        <button disabled={!this.state.formValid}  onClick={this.handleSubmit} className="button login deep-purple accent-4" type="submit">
+        <div className="form-group form-group--submit">   
+        <button  onClick={this.handleSubmit} className="button submit-button" type="submit">
           { this.props.loading ? (
           <SyncLoader
           sizeUnit="px"
@@ -163,6 +170,7 @@ class SignUp extends Component {
             : 'Sign Up'
         }
         </button>
+        </div>
       </form>
     );
   }
