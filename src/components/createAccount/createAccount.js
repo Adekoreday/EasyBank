@@ -7,8 +7,9 @@ class createAccount extends Component {
       super(props);
       this.state = {
         amount: null,
-        accountType: null,
         selectedOption: null,
+        selectedOptionValid: false,
+        accountValid: false,
         options: [
           { value: 'current', label: 'CURRENT' },
           { value: 'savings', label: 'SAVINGS' },
@@ -24,8 +25,34 @@ class createAccount extends Component {
       console.log(`Option selected:`, selectedOption);
     };
 
+
+    validateField = (fieldName, value) => {
+      const { formErrors } = this.state;
+      let { accountValid, selectedOptionValid } = this.state;
+  
+      switch (fieldName) {
+        case 'account':
+          accountValid = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(value);
+          formErrors.account = accountValid ? null : ' account must be positive numbers';
+          break;
+          case 'selectInput':
+            selectedOptionValid = value.length >= 5;
+            formErrors.accountType = selectedOptionValid ? null : 'kindly select a valid option';
+            break;
+        default:
+          break;
+      }
+      this.setState({
+        formErrors,
+        accountValid,
+        selectedOptionValid,
+        formValid: selectedOptionValid && accountValid
+      });
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log('the state value', this.state)
         if(!this.state.formValid) return;
         console.log('this is submitting');
       }
@@ -61,7 +88,7 @@ class createAccount extends Component {
             />
               </div>
              <div className="form-group">       
-              <input
+            <input
             className="Input"
             autoComplete="off"
             type="text"

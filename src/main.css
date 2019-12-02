@@ -1,7 +1,17 @@
 body{
     font-family: 'Lato', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
+
+@media screen and (min-width: 1440px){
+    body{
+     margin: 0 auto;
+     max-width: 1440px;
+    }
+  }
 
 html{
     font-size: 62.5%;
