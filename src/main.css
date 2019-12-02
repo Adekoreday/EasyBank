@@ -1,8 +1,93 @@
 body{
     font-family: 'Lato', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
+
+@media screen and (min-width: 1440px){
+    body{
+     margin: 0 auto;
+     max-width: 1440px;
+    }
+  }
 
 html{
     font-size: 62.5%;
 }
+
+.button{
+    box-sizing:border-box;
+    margin: 10px;
+    border-radius: 5px;
+    width: 136px;
+    height: 36px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .button:hover{
+    opacity: 0.6;
+    transition: ease all 0.2s;
+  }
+
+
+button:focus { outline: none; }
+
+.submit-button{
+    text-transform: uppercase;
+    background: #6253F1;
+    color: white;
+    text-align: center;
+    width: 19.1rem !important;
+    border-radius: 6rem !important;
+    position: absolute;
+    position: absolute; /* Position in relation to the nearest positioned element */
+    top: 50%; /* 50% from the top */
+    left: 50%; /* 50% from the left */
+    transform: translate(-50%, -50%);
+}
+
+.form-group{
+    font-size: 1rem;
+    margin: 2rem auto;
+}
+
+.form-group--submit{
+  position: relative;
+  padding: 1rem 0;
+}
+
+::-webkit-input-placeholder {
+    text-align: left;
+  }
+
+input:focus{
+    outline: none;
+  }
+
+  form{
+    box-sizing: border-box;
+    background: #E2EBFF;
+  }
+
+  .Input{
+    font-family: inherit;
+    background-color: rgba(#FFFFFF, .5);
+    color: inherit !important;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    height: 3.74rem;
+    width: 100%;
+    padding: 1.2rem;
+    display: block;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+  
+  @media only screen and (max-width: 669px) {
+    .button{
+      width: 70%;
+    }
+  }

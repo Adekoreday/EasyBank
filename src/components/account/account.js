@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {getAllAccount} from '../../action/account';
 import AllAccount from '../allAccount/allAccount';
+import CreateAccount from '../createAccount/createAccount';
 import Spinner from '../spinners/Spinner';
 import './account.css';
 
@@ -56,7 +57,7 @@ class Account extends Component {
             />
             {loading && <Spinner/>}
             {(showAllAccount === true && loading === false && isSuccess=== true)&& <div className="account__content"><AllAccount allAccount={allAccount}/></div>}
-            {(showCreateAccount && loading === false) && <div className="account__content">This is the content to create account</div>}
+            {(showCreateAccount && loading === false) && <div className="account__content"><CreateAccount /></div>}
           </div>
         );
     }
