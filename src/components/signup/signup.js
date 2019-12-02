@@ -39,11 +39,8 @@ class SignUp extends Component {
   }
 
   redirectToDashboard = (Data) => {
-    const { token, email } = Data;
-    localStorage.setItem('token', token);
-    localStorage.setItem('mail', email);
-    const { history } = this.props;
-    if (history) history.push('/profile');
+    localStorage.clear();
+    this.props.notify('signup successful kindly signin');
   };
 
 

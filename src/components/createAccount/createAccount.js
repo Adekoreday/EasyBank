@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {createAccounts} from '../../action/account';
 import './createAccount.css';
 
 class createAccount extends Component {
@@ -20,9 +23,14 @@ class createAccount extends Component {
       };
     }
 
+    inputChangeHandler = (event) => {
+      this.setState({ [event.target.id]: event.target.value });
+    }
+  
+
     handleSelect = selectedOption => {
       this.setState({ selectedOption });
-      console.log(`Option selected:`, selectedOption);
+      this.validateField('selectInput', selectedOption.value);
     };
 
 
@@ -31,12 +39,12 @@ class createAccount extends Component {
       let { accountValid, selectedOptionValid } = this.state;
   
       switch (fieldName) {
-        case 'account':
-          accountValid = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(value);
+        case 'amount':
+          accountValid = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/.test(value);
           formErrors.account = accountValid ? null : ' account must be positive numbers';
           break;
           case 'selectInput':
-            selectedOptionValid = value.length >= 5;
+            selectedOptionValid = value.length >= 3;
             formErrors.accountType = selectedOptionValid ? null : 'kindly select a valid option';
             break;
         default:
@@ -52,14 +60,19 @@ class createAccount extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log('the state value', this.state)
         if(!this.state.formValid) return;
-        console.log('this is submitting');
+        const details ={
+          balance: this.state.amount,
+          Type: this.state.selectedOption.value
+        }
+        this.props.createAccounts(details);
+
       }
 
-      handleSelect = (selectedOption) => {
-        this.setState({ selectedOption });
-        console.log('this has changed');
+      blurHandler = (event) => {
+        const name = event.target.id;
+        const value = event.target.value;
+        this.validateField(name, value);
       }
 
     render() {
@@ -86,18 +99,20 @@ class createAccount extends Component {
              onChange={this.handleSelect}
              options={this.state.options}
             />
+            <div className="indicator">{this.state.formErrors.accountType === null ? null : this.state.formErrors.accountType}</div>
               </div>
              <div className="form-group">       
             <input
             className="Input"
             autoComplete="off"
-            type="text"
-            id="text"
+            type="number"
+            id="amount"
             placeholder="OPENING BALANCE"
             value={this.state.email}
-            onChange={this.myChangeHandler}
+            onChange={this.inputChangeHandler}
             onBlur={this.blurHandler}
           />
+           <div className="indicator">{this.state.formErrors.account === null ? null : this.state.formErrors.account}</div>
           </div> 
           <div className="form-group form-group--submit">  
             <button className="button submit-button" onClick= { this.handleSubmit} type="submit">
@@ -121,4 +136,17 @@ class createAccount extends Component {
       }
     }
 
-export default createAccount;
+
+  const mapStateToProps = (state) => {
+    const { account } = state;
+    const { allAccount, loading, isSuccess } = account;
+    return {
+      allAccount, loading, isSuccess 
+    };
+};
+
+    const mapDispatchToProps = dispatch => bindActionCreators({
+      createAccounts
+    }, dispatch);
+
+    export default connect(mapStateToProps, mapDispatchToProps)(createAccount);
