@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {createAccounts} from '../../action/account';
+import { SyncLoader } from 'react-spinners';
 import './createAccount.css';
 
 class createAccount extends Component {
@@ -22,17 +20,23 @@ class createAccount extends Component {
         formErrors: { amount: null, accountType: null },
       };
     }
-
     inputChangeHandler = (event) => {
       this.setState({ [event.target.id]: event.target.value });
     }
-  
+
+    componentDidUpdate(prevProps) {
+      if(prevProps.createdAccount !== this.props.createdAccount && (Object.keys(this.props.createdAccount).length > 0)){
+        this.props.notify(` A new account was created with account number ${this.props.createdAccount.Data.accountnumber} `);
+      }
+      else if(prevProps.isfailedCreateAccount !== this.props.isfailedCreateAccount &&  Object.keys(this.props.isfailedCreateAccount).length !==0) {
+        this.props.notify(`${this.props.isfailedCreateAccount.msg} `);
+      }
+    }
 
     handleSelect = selectedOption => {
       this.setState({ selectedOption });
       this.validateField('selectInput', selectedOption.value);
     };
-
 
     validateField = (fieldName, value) => {
       const { formErrors } = this.state;
@@ -66,7 +70,6 @@ class createAccount extends Component {
           Type: this.state.selectedOption.value
         }
         this.props.createAccounts(details);
-
       }
 
       blurHandler = (event) => {
@@ -89,6 +92,7 @@ class createAccount extends Component {
       };
         return (
             <div className='createAccountContainer'>
+      
           <form onSubmit={this.handleSubmit} className="create__account__form">
               <div className="form-group">
               <Select
@@ -100,8 +104,8 @@ class createAccount extends Component {
              options={this.state.options}
             />
             <div className="indicator">{this.state.formErrors.accountType === null ? null : this.state.formErrors.accountType}</div>
-              </div>
-             <div className="form-group">       
+            </div>
+            <div className="form-group">       
             <input
             className="Input"
             autoComplete="off"
@@ -115,7 +119,7 @@ class createAccount extends Component {
            <div className="indicator">{this.state.formErrors.account === null ? null : this.state.formErrors.account}</div>
           </div> 
           <div className="form-group form-group--submit">  
-            <button className="button submit-button" onClick= { this.handleSubmit} type="submit">
+            <button className="button submit-button" onClick= {this.handleSubmit} type="submit">
               { this.props.loading
                 ? (
               <SyncLoader
@@ -123,7 +127,6 @@ class createAccount extends Component {
               size={15}
               color="#ffff"
               loading={this.props.loading}
-              options={this.state.options}
             />
                 )
                 : 'Create Account'
@@ -136,17 +139,4 @@ class createAccount extends Component {
       }
     }
 
-
-  const mapStateToProps = (state) => {
-    const { account } = state;
-    const { allAccount, loading, isSuccess } = account;
-    return {
-      allAccount, loading, isSuccess 
-    };
-};
-
-    const mapDispatchToProps = dispatch => bindActionCreators({
-      createAccounts
-    }, dispatch);
-
-    export default connect(mapStateToProps, mapDispatchToProps)(createAccount);
+export default createAccount;

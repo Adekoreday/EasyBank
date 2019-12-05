@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import AccountHeader from '../accountHeader/accountHeader';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {getAllAccount} from '../../action/account';
+import { toast } from 'react-toastify';
+import {getAllAccount, createAccounts} from '../../action/account';
 import AllAccount from '../allAccount/allAccount';
 import CreateAccount from '../createAccount/createAccount';
 import Spinner from '../spinners/Spinner';
@@ -17,6 +18,10 @@ class Account extends Component {
             showCreateAccount: false
         }
     }
+
+    notify = msg => toast.error(msg, {
+        className: 'notify'
+      });    
 
     componentDidMount() {
         this.props.getAllAccount();  
@@ -37,7 +42,7 @@ class Account extends Component {
       }
     render() {
         const {showAllAccount, showCreateAccount} = this.state;
-        const { allAccount, loading, isSuccess } = this.props;
+        const { allAccount, loading, isSuccess, isSucessCreateAccount, createAccounts, createdAccount,isfailedAllAccount, isfailedCreateAccount } = this.props;
         return(
             <div className="account">
             <AccountHeader items={
@@ -55,9 +60,26 @@ class Account extends Component {
                 ]
             }
             />
-            {loading && <Spinner/>}
-            {(showAllAccount === true && loading === false && isSuccess=== true)&& <div className="account__content"><AllAccount allAccount={allAccount}/></div>}
-            {(showCreateAccount && loading === false) && <div className="account__content"><CreateAccount /></div>}
+            {(showAllAccount) && <div className="account__content">
+            <AllAccount
+            allAccount={allAccount}
+            loading={loading}
+            isfailedAllAccount={isfailedAllAccount}
+            isSuccess={isSuccess}
+            />
+            </div>}
+            {(showCreateAccount) && <div className="account__content">
+            <CreateAccount
+             notify={this.notify}
+             createAccounts={createAccounts}
+             isfailedCreateAccount={isfailedCreateAccount}
+             createAccounts={createAccounts}
+             createdAccount={createdAccount}
+             loading={loading}
+             isSucessCreateAccount={isSucessCreateAccount}
+            />
+            </div>
+            }
           </div>
         );
     }
@@ -65,13 +87,14 @@ class Account extends Component {
 
 const mapStateToProps = (state) => {
     const { account } = state;
-    const { allAccount, loading, isSuccess } = account;
+    const { allAccount, loading, isSuccess, isSucessCreateAccount,  isfailedAllAccount, isfailedCreateAccount, createdAccount } = account;
     return {
-        allAccount, loading, isSuccess 
+        allAccount, loading, isSuccess, isSucessCreateAccount,  isfailedAllAccount, isfailedCreateAccount, createdAccount
     };
   };
   const mapDispatchToProps = dispatch => bindActionCreators({
-    getAllAccount
+    getAllAccount,
+    createAccounts
   }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);
