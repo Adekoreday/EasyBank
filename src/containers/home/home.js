@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import {
@@ -30,7 +29,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <ToastContainer />
         { this.props.modalStatus ? <Modal closeModal={this.props.closeModal} /> : ''}
         {this.props.signInmodalStatus ? (
           <Modal closeModal={this.props.signInCloseModal}>

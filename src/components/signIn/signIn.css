@@ -7,6 +7,6 @@
   height: auto;
   padding: 2rem;
   box-sizing: border-box;
-  background: #E2EBFF;
  margin: 3rem auto;
+ box-shadow: 0 10px 20px rgba(black, 0.2);
 }

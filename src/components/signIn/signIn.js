@@ -82,7 +82,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="signin__form">
+      <form onSubmit={this.handleSubmit} className="form signin__form">
         <div className="form-group">
           <input
           className="Input"
