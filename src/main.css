@@ -96,3 +96,48 @@ input:focus{
       width: 70%;
     }
   }
+
+  @keyframes moveInRight {
+    0%   {
+        transform: translateX(-5em);
+        opacity: 0;
+    }
+    80%  {
+        transform: translateX(2em);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+  @keyframes moveInfromTop {
+    0%   {
+        transform: translateY(-5em);
+        opacity: 0;
+    }
+    80%  {
+        transform: translateY(2em);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+
+  @keyframes moveInfromButtom {
+    0%   {
+        transform: translateY(5em);
+        opacity: 0;
+    }
+    80%  {
+        transform: translateY(-2em);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }

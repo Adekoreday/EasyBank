@@ -42,7 +42,7 @@ class Account extends Component {
       }
     render() {
         const {showAllAccount, showCreateAccount} = this.state;
-        const { allAccount, loading, isSuccess, isSucessCreateAccount, createAccounts, createdAccount,isfailedAllAccount, isfailedCreateAccount } = this.props;
+        const { allAccount, loading, isSuccess, isSucessCreateAccount, createAccounts, createdAccount,isfailedAllAccount, isfailedCreateAccount, createAccountloading } = this.props;
         return(
             <div className="account">
             <AccountHeader items={
@@ -75,7 +75,7 @@ class Account extends Component {
              isfailedCreateAccount={isfailedCreateAccount}
              createAccounts={createAccounts}
              createdAccount={createdAccount}
-             loading={loading}
+             loading={createAccountloading}
              isSucessCreateAccount={isSucessCreateAccount}
             />
             </div>
@@ -87,9 +87,9 @@ class Account extends Component {
 
 const mapStateToProps = (state) => {
     const { account } = state;
-    const { allAccount, loading, isSuccess, isSucessCreateAccount,  isfailedAllAccount, isfailedCreateAccount, createdAccount } = account;
+    const { allAccount, loading, isSuccess, isSucessCreateAccount,  isfailedAllAccount, isfailedCreateAccount, createdAccount, createAccountloading } = account;
     return {
-        allAccount, loading, isSuccess, isSucessCreateAccount,  isfailedAllAccount, isfailedCreateAccount, createdAccount
+        allAccount, loading, isSuccess, isSucessCreateAccount,  isfailedAllAccount, isfailedCreateAccount, createdAccount, createAccountloading
     };
   };
   const mapDispatchToProps = dispatch => bindActionCreators({
