@@ -1,6 +1,7 @@
 .user_dashboard{
     display: flex;
     height: 100%;
+    position: relative;
     margin-left: 15%;
     background-color: #F6F8FC;
     justify-content: flex-start;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SideNav from '../sideNav';
 import Account from '../account/account';
+import Profile from '../profile/profile';
 import { connect } from 'react-redux';
 import AccountImg from '../../images/icons/ecommerce_graph2.svg';
 import ProfileImg from '../../images/icons/perm_identity-24px.svg';
@@ -57,6 +58,7 @@ render() {
   const {
     accountsDisplay, ProfileDisplay, TransactionDisplay, likesDisplay
   } = this.state.settings;
+  const {UserData} = this.props;
   return(
     <div className="dashboard">
     <div className="user-aside">
@@ -100,7 +102,7 @@ render() {
   </div>
   <div className="user_dashboard">
     {accountsDisplay === true && <Account/>}
-    {ProfileDisplay === true && (<div>Profile page</div>)}
+    {ProfileDisplay === true && (<Profile UserData={UserData}/>)}
     {TransactionDisplay === true && (<div>Transaction page</div>)}
   </div>
   </div>)

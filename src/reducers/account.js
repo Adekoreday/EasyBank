@@ -8,6 +8,7 @@ import {
     isfailedCreateAccount: {},
     createdAccount: {},
     loading: false,
+    createAccountloading: false,
     isSuccess: false,
     isSucessCreateAccount: false
   };
@@ -17,15 +18,15 @@ import {
          case GET_ALL_ACCOUNTS_REQUEST:
          return { ...state, loading: true, isSuccess: false, allAccount: {}, isfailedAllAccount: {} };
          case CREATE_ACCOUNTS_REQUEST:
-          return { ...state, loading: true, isSucessCreateAccount: false , createdAccount: {}, isfailedCreateAccount: {}};
+          return { ...state, createAccountloading: true, isSucessCreateAccount: false , createdAccount: {}, isfailedCreateAccount: {}};
          case GET_ALL_ACCOUNTS_FAILURE:
          return { ...state, loading: false, isSuccess: false, isfailedAllAccount: action.data };
          case CREATE_ACCOUNTS_FAILURE:
-          return { ...state, loading: false, isfailedCreateAccount: action.data, isSucessCreateAccount: false};
+          return { ...state, createAccountloading: false, isfailedCreateAccount: action.data, isSucessCreateAccount: false};
          case GET_ALL_ACCOUNTS_SUCCESS:
           return { ...state, loading: false, isSuccess: true, allAccount: action.data};
          case CREATE_ACCOUNTS_SUCCESS:
-          return { ...state, loading: false, isSucessCreateAccount: true, createdAccount: action.data};
+          return { ...state, createAccountloading: false, isSucessCreateAccount: true, createdAccount: action.data};
       default:
         return state;
     }
