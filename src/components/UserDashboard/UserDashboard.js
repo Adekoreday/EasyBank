@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SideNav from '../sideNav';
 import Account from '../account/account';
 import Profile from '../profile/profile';
+import About from '../about/about';
 import { connect } from 'react-redux';
 import AccountImg from '../../images/icons/ecommerce_graph2.svg';
 import ProfileImg from '../../images/icons/perm_identity-24px.svg';
@@ -17,7 +18,7 @@ class UserDashBoard extends Component  {
     settings: {
       accountsDisplay: true,
       ProfileDisplay: false,
-      TransactionDisplay: false,
+      AboutDisplay: false,
       likesDisplay: false
     }
   };
@@ -26,7 +27,7 @@ class UserDashBoard extends Component  {
     const newState = {
       accountsDisplay: false,
       ProfileDisplay: false,
-      TransactionDisplay: false,
+      AboutDisplay: false,
       likesDisplay: false,
       ...data
     }
@@ -42,8 +43,8 @@ class UserDashBoard extends Component  {
     this.toggleState({ProfileDisplay: true});
   }
 
-  showTransaction = () => {
-    this.toggleState({TransactionDisplay: true});
+  showAbout = () => {
+    this.toggleState({AboutDisplay: true});
   }
 
 
@@ -56,7 +57,7 @@ class UserDashBoard extends Component  {
 
 render() {
   const {
-    accountsDisplay, ProfileDisplay, TransactionDisplay, likesDisplay
+    accountsDisplay, ProfileDisplay, AboutDisplay, likesDisplay
   } = this.state.settings;
   const {UserData} = this.props;
   return(
@@ -83,19 +84,12 @@ render() {
         imgurl: ProfileImg
       },
       {
-        text: 'Transaction',
+        text: 'About',
         link: '/profile',
         style: 'NavItem',
-        active: TransactionDisplay,
-        onclick: this.showTransaction,
+        active: AboutDisplay,
+        onclick: this.showAbout,
         imgurl: TransactionImg
-      },
-      {
-        text: 'Navigation',
-        link: '/profile',
-        style: 'NavItem',
-        onclick: this.toggleState,
-        imgurl: NavigationImg
       }
     ]}
     ></SideNav>
@@ -103,7 +97,7 @@ render() {
   <div className="user_dashboard">
     {accountsDisplay === true && <Account/>}
     {ProfileDisplay === true && (<Profile UserData={UserData}/>)}
-    {TransactionDisplay === true && (<div>Transaction page</div>)}
+    {AboutDisplay === true && (<About />)}
   </div>
   </div>)
 };

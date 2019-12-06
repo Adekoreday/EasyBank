@@ -6,10 +6,9 @@ const Hero = () => (
     <div className="text-container">
       <div className="hero-title">BANKA APP </div>
       <div className="hero-subtitle">
-          Banka is a Lightweight banking application which allows
-          user to perfom banking operations ,
-          such as creation of account and make
-          transaction on such account by visiting the bank for withdrawal
+          Banka is a Lightweight banking application, which allows
+          user to perfom banking operations
+          such as creation of account, transaction history, balance check and many more...
       </div>
     </div>
 

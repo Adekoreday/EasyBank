@@ -8,27 +8,14 @@
     background-size: cover !important;
     justify-content: center;
     flex-grow: 1;
+    animation-name: moveInfromButoom;
+    animation-duration: 4s;
 }
 
 .text-container{ 
     display: block;
     width: 30%;
 }
-
-@keyframes moveInRight {
-    0%   {
-        transform: translateX(-5em);
-        opacity: 0;
-    }
-    80%  {
-        transform: translateX(2em);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-  }
 
 .hero-container{
     padding: 50px;
@@ -41,7 +28,8 @@
     margin-top: 30px;
     animation-name: moveInRight;
     animation-duration: 4s;
-
+    font-size: 2rem;
+    letter-spacing: .15rem;
 }
 
 .hero-title{
@@ -60,7 +48,6 @@
         background-size: cover !important;
         max-width: 433px;
         height: 318px;
-
     }
 }
 

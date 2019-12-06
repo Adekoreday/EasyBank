@@ -6,8 +6,6 @@ import Card from '../../images/icons/card.svg';
 import './profile.css';
 
 const Profile = (props) => {
-    console.log(props.UserData, "this is our props");
-
     const {firstname, lastname, email, createdon, photo} = props.UserData.Data;
 return(
   <div className="profile__content">
