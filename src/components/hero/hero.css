@@ -8,7 +8,7 @@
     background-size: cover !important;
     justify-content: center;
     flex-grow: 1;
-    animation-name: moveInfromButoom;
+    animation-name: moveInfromTop;
     animation-duration: 4s;
 }
 
