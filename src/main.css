@@ -16,7 +16,9 @@ body{
 html{
     font-size: 62.5%;
 }
-
+a, a:hover, a:visited {
+color: inherit;
+}
 .button{
     box-sizing:border-box;
     margin: 10px;

@@ -73,3 +73,20 @@
     }
 
 }
+.getStarted{
+  background: #5A60FF;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  margin: 7rem 6rem 6rem 0!important;
+  padding: 1.2rem !important;
+  width: 60%;
+  font-size: 2rem !important;
+ border-radius:  4rem !important;
+}
+
+.getStarted:active{
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(#0000, 0.1);
+}

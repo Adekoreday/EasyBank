@@ -41,4 +41,26 @@ export const getAllAccount = () => async (dispatch) => {
       data
     });     
     }
-  } 
+  }
+
+
+  export const getAccountTransactions = () => async (dispatch) => {
+    let data;
+    dispatch({ type: types.GET_ACCOUNT_REQUEST });
+    try{
+      const response = await asyncRequest('get', "/api/v1/transactions", null);
+      const {data} = response;
+      console.log("done");
+      dispatch({
+        type: types.GET_ACCOUNT_SUCCESS,
+        data: data.Data
+      });
+    } catch(e) {
+     data = e.response === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
+     dispatch({
+      type: types.GET_ACCOUNT_FAILURE,
+      data
+    });     
+    }
+  }
+

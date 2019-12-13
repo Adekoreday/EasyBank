@@ -15,7 +15,6 @@ export const getUserDetails = () => async (dispatch) => {
       data
     });
   } catch (e) {
-    console.log(e), "the error is ";
     data = e.response === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
     dispatch({
       type: types.FETCH_USER_DETAILS_FAILURE,

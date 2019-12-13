@@ -28,6 +28,7 @@
     "mini-css-extract-plugin": "^0.8.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
+    "query-string": "^6.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
