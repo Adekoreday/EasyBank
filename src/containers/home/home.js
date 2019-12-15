@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
@@ -27,6 +28,11 @@ class Home extends Component {
   });
 
   render() {
+  const { from } = this.props.location.state || { from: { pathname: '/' } }
+   if (this.props.isAuth === true) {
+     console.log('i got here');
+     return <Redirect to={from} />
+   }
     return (
       <div>
         { this.props.modalStatus ? <Modal closeModal={this.props.closeModal} /> : ''}
@@ -92,13 +98,13 @@ Home.propTypes = {
 
 const mapStateToProps = (state) => {
   const { navbar, modal, user } = state;
-  const { UserData, loading, isSignedIn, isSignedUp } = user;
+  const { UserData, loading, isSignedIn, isSignedUp, isAuth } = user;
   const { navbarStatus } = navbar;
   const {
     modalStatus, signInmodalStatus, signUpmodalStatus,
   } = modal;
   return {
-    navbarStatus, modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading
+    navbarStatus, modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading, isAuth
   };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({
