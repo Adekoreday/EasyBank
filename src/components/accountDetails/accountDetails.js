@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
@@ -7,7 +7,7 @@ import Spinner from '../spinners/Spinner';
 import Card from '../card/card';
 import './accountDetails.css';
 
-class AccountDetails extends Component{
+class AccountDetails extends Component {
 
     componentDidMount() {
 
@@ -16,6 +16,7 @@ class AccountDetails extends Component{
 
     componentDidUpdate() {
         console.log("this all trnsaction has updated");
+        console.log("this is account transact", this.props);
     }
     render() {
         const { location: { search } } = this.props;
@@ -26,9 +27,8 @@ class AccountDetails extends Component{
                     return x.accountnumber == accountNumber;
                 });
         }
-        console.log('account transact', accountTransact);
         return(
-            <div className="transaction__page">
+
             <div className="accountDetails__content">
                 {(this.props.getAccountLoading) && <Spinner/>}
                 {(this.props.getAccountLoading ===false & this.props.accountTransaction.length > 0) ? <Card
@@ -39,13 +39,13 @@ class AccountDetails extends Component{
                 createdon={createdon}
                 />
                  : ''}
-                 {(this.props.getAccountLoading===false & accountTransact.length>0) ? <div className="transaction__content"><Card type='transactionDetails'
+                 {(this.props.getAccountLoading===false & accountTransact.length>0) ? <div className="transaction__content">
+                <Card type='transactionDetails'
                  accountTransact={accountTransact}
                  /> </div>:
                  null}
 
                 {(this.props.getAccountLoading ===false & this.props.accountTransaction.length === 0) ? <div>Account has no transactions</div>: ''}
-            </div>
             </div>
         )
     }

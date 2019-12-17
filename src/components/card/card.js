@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AccountImage from '../../images/icons/account.svg';
 import BalanceImg from '../../images/icons/balance.svg';
+import NairaImg from '../../images/icons/naira.svg';
+import Clock from '../../images/icons/clock.svg';
+import PreviousImg from '../../images/icons/previous.svg';
+import TransactionImg from '../../images/icons/transaction.svg';
 import Created from '../../images/icons/created.svg';
 import Status from '../../images/icons/status.svg';
 import { Link } from 'react-router-dom';
@@ -47,7 +51,7 @@ const Card = (props) => {
       <div className="transaction__card">
           <div className={types[0] === 's' ? "savings transaction__card__caption account__card__caption " : "transaction__card__caption account__card__caption"}><div className="transaction__card__caption__text">{types[0]}</div></div>
         <div className="transaction__card__details">
-        <div className="transaction__header">ACCOUNT NO {`${accountNumber}`}</div>
+        <div className="transaction__header">ACCOUNT NO: {`${accountNumber}`}</div>
         <div className="transaction__item"><span>Type: </span><span>{types}</span></div>
         <div className="transaction__status transaction__item"><span>Status: </span>{status}</div>
         <div className="transaction__item"><span>Created: </span> <Moment format="YYYY/MM/DD" date={createdon}/></div>
@@ -55,36 +59,23 @@ const Card = (props) => {
       </div>
     )
   }
-
-  /*
-  accountnumber: "5755817741"
-amount: 20000
-createdon: "2019-12-09T00:00:00.000Z"
-newbalance: 40000
-oldbalance: 20000
-  */
-
   const transactionDetailsCard=(props)=>{
     const {accountTransact} = props;
-    console.log(accountTransact, "account transaction");
     return(
       <div>
     {accountTransact.map((x, i) => (
     <div className="transaction__card__history" key={i}>
-        <div>
-          <img className="account__card__image"  src={AccountImage} alt="card img"  /><span>Balance</span>
-          <div>{x.newbalance}</div>
+        <div className="account__balance__transact">
+          <div className="balance__img"><img className="account__card__image--medium"  src={AccountImage} alt="card img"  /><span>Balance</span></div>
+          <div className="balance"><img src={NairaImg} className="account__card__image--medium" alt="naira img"  />{x.newbalance}</div>
         </div>
         <div>
-          <div>
-          <div>Previous Balance</div>
-          <div>{x.oldbalance}</div>
-          </div>
-          <div>
-          <div>{x.newbalance > x.oldbalance ? 'credit' : 'debit'}</div>
-          <div>{x.oldbalance}</div>
-          </div>
 
+          <div className="balance__img"><img src={PreviousImg} className="account__card__image" alt="transaction img" />Previous Balance
+          <div><img src={NairaImg} className="account__card__image" alt="transaction img" />{x.oldbalance}</div></div>
+          <div className="balance__img"><img src={TransactionImg} className="account__card__image" alt="transaction img"  />{x.newbalance > x.oldbalance ? 'credit' : 'debit'}
+          <div><img src={NairaImg} className="account__card__image" alt="naira img" />{x.amount}</div></div>
+          <div className="balance__img"><img src={Clock} className="account__card__image" alt="clock img" />{x.createdon}</div>
         </div>
     </div>
     ))}

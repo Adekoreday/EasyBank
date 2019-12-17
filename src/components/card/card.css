@@ -25,18 +25,19 @@
 }
 .transaction__card{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     border-radius: 1rem;
-    height: 15rem;
-    padding: 3rem 3rem 0 3rem;
-    margin: 0 auto;
+    padding: 3rem 10rem 0 3rem;
     font-size: 1.4rem;
 }
 
 .transaction__card__caption{
-    margin-right: 5rem !important;
+    margin-right: 7rem !important;
     font-size: 2rem !important;
-    height: 10rem !important;
+    height: 14rem !important;
+    width: 20.1rem !important;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .transaction__history{
@@ -54,8 +55,9 @@
 
 .transaction__item{
     padding: 0 3rem 0rem 0rem;
-    background-color: white;
+    background-color: white !important;
     margin-bottom: 0.2rem;
+    font-size: 1.8rem;
     width: 100%;
 }
 
@@ -75,10 +77,11 @@
 }
 
 .transaction__header{
-    font-weight: 400;
+    font-weight: 700;
     padding: 0 1rem 0 0;
     margin-bottom: 0.5rem;
     background-color: white;
+    font-size: 1.8rem;
 }
 .account__card:hover{
     transform: translateY(-.2rem);
@@ -86,8 +89,24 @@
 
 .account__card__image{
     display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.7rem;
+    margin-left: 0.7rem;
+}
+
+.account__card__image--medium{
+    display: inline-block;
     width: 2.5rem;
     height: 2rem;
+}
+
+.balance{
+    font-size: 3.2rem;
+    color: #A6A4B4;
+}
+.account__balance__transact{
+    margin: 2rem 10rem 1rem 3rem;
 }
 
 img{
@@ -120,15 +139,18 @@ img{
 
 .transaction__card__history{
     display: flex;
+    background: white;
     justify-content: flex-start;
-    margin-top: 3rem;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    font-size: 1.4rem;
-    border-radius: 1rem;
-    height: 1``rem;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-    transition: all .2s;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    width: 60rem;
+    height: 13rem;
+    border-radius: 0.7rem;
+    margin-bottom: 2rem;
+}
+
+.balance__img{
+    display: flex;
+    margin: 1rem 0;
 }
 
 .account__card__caption{
@@ -169,11 +191,3 @@ ul, li {
     margin: 0;
     padding: 0;
 }
-
-/*@media only screen and (max-width: 669px) {
-    .card{
-     width: 80%;
-     height: 30%;
-    }
-
-}*/

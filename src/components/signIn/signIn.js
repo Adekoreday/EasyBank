@@ -52,8 +52,8 @@ class SignIn extends Component {
     localStorage.clear();
     localStorage.setItem('mail', email);
     localStorage.setItem('token', token);
-   // const { history } = this.props;
-    //if (history) history.push('/profile');
+    const { history } = this.props;
+    if (history) history.push('/profile');
   };
 
   validateField = (fieldName, value) => {

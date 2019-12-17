@@ -15,7 +15,7 @@ const initialState = {
 const user = (state = { ...initialState }, action) => {
   switch (action.type) {
       case USER_SIGNIN_SUCCESS:
-       return { ...state, isAuth: true, loading: false, isSignedIn: true, UserData: action.data };
+       return { ...state, loading: false, isSignedIn: true, UserData: action.data };
       case USER_SIGNIN_FAILURE:
        return { ...state, loading: false, isSignedIn: false, UserData: action.data };
       case USER_SIGNIN_REQUEST:
