@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
@@ -51,6 +52,8 @@ class Home extends Component {
             isSignedUp={this.props.isSignedUp}
             loading={this.props.loading}
             notify={this.notify}
+            signInModal={this.props.signInOpenModal}
+            signUpCloseModal={this.props.signUpCloseModal}
             />
           </Modal>
         ) : ''}
@@ -62,7 +65,7 @@ class Home extends Component {
            signInOpenModal={this.props.signInOpenModal}
            signUpOpenModal={this.props.signUpOpenModal}
          />
-        <Hero />
+        <Hero signInOpenModal={this.props.signInOpenModal}/>
         <Bottom />
       </div>
     );
@@ -96,7 +99,7 @@ const mapStateToProps = (state) => {
     modalStatus, signInmodalStatus, signUpmodalStatus,
   } = modal;
   return {
-    navbarStatus, modalStatus, signInmodalStatus,isSignedIn,isSignedUp, signUpmodalStatus, UserData, UserData, loading
+    navbarStatus, modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading,
   };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({

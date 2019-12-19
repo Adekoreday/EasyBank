@@ -40,7 +40,9 @@ class SignUp extends Component {
 
   redirectToDashboard = (Data) => {
     localStorage.clear();
-    this.props.notify('signup successful kindly signin');
+    this.props.notify("signup successful now signin");
+    {this.props.signUpCloseModal()}
+   {this.props.signInModal()}
   };
 
 
