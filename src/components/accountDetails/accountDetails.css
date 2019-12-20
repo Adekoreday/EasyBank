@@ -6,6 +6,11 @@
        background-color: #F6F8FC;
 }
 
+.transaction__empty{
+display: flex;
+justify-content: center;
+
+}
 
 .transaction__details{
         margin-left: 5rem;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
 import {getAccountTransactions} from '../../action/account';
+import TransactionImg from '../../images/icons/No_Account.svg';
 import Spinner from '../spinners/Spinner';
 import Card from '../card/card';
 import './accountDetails.css';
@@ -45,7 +46,7 @@ class AccountDetails extends Component {
                  /> </div>:
                  null}
 
-                {(this.props.getAccountLoading ===false & this.props.accountTransaction.length === 0) ? <div>Account has no transactions</div>: ''}
+                {(this.props.getAccountLoading ===false & this.props.accountTransaction.length === 0) ? <div className="transaction__empty"> <div><img src={TransactionImg} alt="no transaction yet"/><p>New user visit your bank and perfom transactions</p><p>No transactions exists</p></div></div>: ''}
             </div>
         )
     }
