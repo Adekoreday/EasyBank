@@ -12,6 +12,11 @@ const Auth = (props) => {
     useLayoutEffect(() => {
         getUserDetails();
       }, []);
+
+      if(props.location.state !== undefined & isAuth === true){
+        props.history.push(props.location.state.from);
+      }
+
     return(
         <div>
           {(authenticating == true & isAuth ==false) ? <Spinner/> : ''}
