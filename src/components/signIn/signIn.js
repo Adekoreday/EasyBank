@@ -52,8 +52,11 @@ class SignIn extends Component {
     localStorage.clear();
     localStorage.setItem('mail', email);
     localStorage.setItem('token', token);
-    const { history } = this.props;
-    if (history) history.push('/profile');
+    if(this.props.isSignedIn === true){
+      const { history } = this.props;
+      console.log("this is our from", this.props.from);
+      if (history) history.push(this.props.from);
+    }
   };
 
   validateField = (fieldName, value) => {
@@ -81,6 +84,7 @@ class SignIn extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit} className="form signin__form">
         <div className="form-group">

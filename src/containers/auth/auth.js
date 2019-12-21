@@ -8,6 +8,7 @@ import {getUserDetails} from '../../action';
 
 const Auth = (props) => {
     const {getUserDetails, isAuth, authenticating} = props;
+    console.log('auth props', props);
     useLayoutEffect(() => {
         getUserDetails();
       }, []);
@@ -15,7 +16,7 @@ const Auth = (props) => {
         <div>
           {(authenticating == true & isAuth ==false) ? <Spinner/> : ''}
           { (isAuth ==true & authenticating == false ) ? <UserDashboard/> : ''}
-          {(isAuth ==false & authenticating == false ) ? <Home/> : ''}
+          {(isAuth ==false & authenticating == false ) ? <Home RedirectLocation={props.location.state}/> : ''}
         </div>
     );
 }
