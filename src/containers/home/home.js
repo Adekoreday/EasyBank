@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
@@ -19,6 +18,7 @@ import Bottom from '../../components/bottom/bottom';
 import Modal from '../../components/modal/modal';
 import SignIn from '../../components/signIn/signIn';
 import SignUp from '../../components/signup/signup';
+import {getFromStorage} from '../../helpers/storage';
 import './home.css';
 
 class Home extends Component {
@@ -28,6 +28,9 @@ class Home extends Component {
   });
 
   render() {
+    console.log("this is home props", this.props);
+    let from = { pathname: '/profile' };
+      if(this.props.RedirectLocation !== undefined) from = this.props.RedirectLocation.from;
     return (
       <div>
         { this.props.modalStatus ? <Modal closeModal={this.props.closeModal} /> : ''}
@@ -40,6 +43,8 @@ class Home extends Component {
             isSignedIn={this.props.isSignedIn}
             clearUserData={this.props.clearUserData}
             notify={this.notify}
+            from={from}
+            isSignedIn={this.props.isSignedIn}
             />
           </Modal>
         ) : ''}
@@ -99,7 +104,7 @@ const mapStateToProps = (state) => {
     modalStatus, signInmodalStatus, signUpmodalStatus,
   } = modal;
   return {
-    navbarStatus, modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading,
+    navbarStatus, modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading
   };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({
