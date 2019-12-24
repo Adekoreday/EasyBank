@@ -28,7 +28,6 @@ class Home extends Component {
   });
 
   render() {
-    console.log("this is home props", this.props);
     let from = { pathname: '/profile' };
       if(this.props.RedirectLocation !== undefined) from = this.props.RedirectLocation.from;
     return (

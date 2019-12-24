@@ -54,7 +54,6 @@ class SignIn extends Component {
     localStorage.setItem('token', token);
     if(this.props.isSignedIn === true){
       const { history } = this.props;
-      console.log("this is our from", this.props.from);
       if (history) history.push(this.props.from);
     }
   };
@@ -84,7 +83,6 @@ class SignIn extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit} className="form signin__form">
         <div className="form-group">

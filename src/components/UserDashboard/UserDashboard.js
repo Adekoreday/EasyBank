@@ -5,9 +5,10 @@ import Profile from '../profile/profile';
 import About from '../about/about';
 import { connect } from 'react-redux';
 import AccountImg from '../../images/icons/ecommerce_graph2.svg';
+import LogoutImg from '../../images/icons/logout.svg';
 import ProfileImg from '../../images/icons/perm_identity-24px.svg';
+import {clearFromStorage} from '../../helpers/storage';
 import TransactionImg from '../../images/icons/ecommerce_dollar.svg';
-import NavigationImg from '../../images/icons/ecommerce_dollar.svg';
 import { withRouter } from 'react-router-dom';
 import './UserDashboard.css';
 
@@ -29,6 +30,7 @@ class UserDashBoard extends Component  {
       ProfileDisplay: false,
       AboutDisplay: false,
       likesDisplay: false,
+
       ...data
     }
     this.setState({
@@ -47,6 +49,12 @@ class UserDashBoard extends Component  {
     this.toggleState({AboutDisplay: true});
   }
 
+  logout = () => {
+    clearFromStorage();
+    const { history } = this.props;
+    if (history) history.push('/');
+  }
+
 
   ComponentDidUpdate() {
     const {UserData} = this.props;
@@ -60,6 +68,7 @@ render() {
     accountsDisplay, ProfileDisplay, AboutDisplay, likesDisplay
   } = this.state.settings;
   const {UserData} = this.props;
+  console.log(UserData, "this is the users data");
   return(
     <div className="dashboard">
     <div className="user-aside">
@@ -69,7 +78,7 @@ render() {
   items ={[
       {
         text: 'Accounts',
-        link: '/profile',
+        link: '/',
         style: 'NavItem',
         active: accountsDisplay,
         onclick: this.showAccount,
@@ -90,6 +99,41 @@ render() {
         active: AboutDisplay,
         onclick: this.showAbout,
         imgurl: TransactionImg
+      },
+      {
+        text: 'All account',
+        link: '/',
+        style: 'NavItem',
+        onclick: this.logout,
+        imgurl: LogoutImg
+      },
+      {
+        text: 'Activate',
+        link: '/',
+        style: 'NavItem',
+        onclick: this.logout,
+        imgurl: LogoutImg
+      }, 
+      {
+        text: 'Transaction',
+        link: '/',
+        style: 'NavItem',
+        onclick: this.logout,
+        imgurl: LogoutImg
+      },
+      {
+        text: 'Analytics',
+        link: '/',
+        style: 'NavItem',
+        onclick: this.logout,
+        imgurl: LogoutImg
+      },
+      {
+        text: 'Logout',
+        link: '/',
+        style: 'NavItem',
+        onclick: this.logout,
+        imgurl: LogoutImg
       }
     ]}
     ></SideNav>

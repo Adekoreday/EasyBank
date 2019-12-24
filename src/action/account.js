@@ -28,7 +28,6 @@ export const getAllAccount = () => async (dispatch) => {
     dispatch({ type: types.CREATE_ACCOUNTS_REQUEST });
     try{
       const response = await asyncRequest('post', '/api/v1/account', details);
-      console.log('this is the account created', response);
       const {data} = response;
       dispatch({
         type: types.CREATE_ACCOUNTS_SUCCESS,
@@ -50,7 +49,6 @@ export const getAllAccount = () => async (dispatch) => {
     try{
       const response = await asyncRequest('get', "/api/v1/transactions", null);
       const {data} = response;
-      console.log("done");
       dispatch({
         type: types.GET_ACCOUNT_SUCCESS,
         data: data.Data
