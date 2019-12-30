@@ -20,7 +20,11 @@ class UserDashBoard extends Component  {
       accountsDisplay: true,
       ProfileDisplay: false,
       AboutDisplay: false,
-      likesDisplay: false
+      NewStaffDisplay: false,
+      AllAccountDisplay: false,
+      TransactionDisplay: false,
+      AnalyticsDisplay: false,
+      ActivateDisplay: false
     }
   };
 
@@ -29,8 +33,11 @@ class UserDashBoard extends Component  {
       accountsDisplay: false,
       ProfileDisplay: false,
       AboutDisplay: false,
-      likesDisplay: false,
-
+      NewStaffDisplay: false,
+      AllAccountDisplay: false,
+      TransactionDisplay: false,
+      AnalyticsDisplay: false,
+      ActivateDisplay: false,
       ...data
     }
     this.setState({
@@ -45,9 +52,30 @@ class UserDashBoard extends Component  {
     this.toggleState({ProfileDisplay: true});
   }
 
+  showTransaction =() => {
+    this.toggleState({TransactionDisplay: true});
+  }
+
   showAbout = () => {
     this.toggleState({AboutDisplay: true});
   }
+
+  showNewStaff = () => {
+    this.toggleState({NewStaffDisplay: true});
+  }
+
+  showAllAccount = () => {
+    this.toggleState({AllAccountDisplay: true});
+  }
+
+  showAnalytics = () => {
+    this.toggleState({AnalyticsDisplay: true});
+  }
+  showActivates = () => {
+    this.toggleState({ActivateDisplay: true});
+  }
+
+  
 
   logout = () => {
     clearFromStorage();
@@ -65,25 +93,28 @@ class UserDashBoard extends Component  {
 
 render() {
   const {
-    accountsDisplay, ProfileDisplay, AboutDisplay, likesDisplay
+    accountsDisplay, ProfileDisplay, AboutDisplay, AllAccountDisplay,
+    AnalyticsDisplay, ActivateDisplay, NewStaffDisplay, TransactionDisplay
   } = this.state.settings;
   const {UserData} = this.props;
-  console.log(UserData, "this is the users data");
+  const {Data} = UserData;
+  console.log(Data, "this is the users data");
   return(
     <div className="dashboard">
     <div className="user-aside">
     <div className="logo-holder"> <div className="logo">B</div> <span className="logo-text">anka</span></div>
 
+  { Data.isadmin ?
     <SideNav
   items ={[
-      {
-        text: 'Accounts',
-        link: '/',
-        style: 'NavItem',
-        active: accountsDisplay,
-        onclick: this.showAccount,
-        imgurl: AccountImg 
-      },
+    {
+      text: 'Accounts',
+      link: '/',
+      style: 'NavItem',
+      active: accountsDisplay,
+      onclick: this.showAccount,
+      imgurl: AccountImg 
+    },
       {
         text: 'Profile',
         link: '/profile',
@@ -92,40 +123,44 @@ render() {
         onclick: this.showProfile,
         imgurl: ProfileImg
       },
-      {
-        text: 'About',
-        link: '/profile',
-        style: 'NavItem',
-        active: AboutDisplay,
-        onclick: this.showAbout,
-        imgurl: TransactionImg
-      },
-      {
+       {
         text: 'All account',
         link: '/',
         style: 'NavItem',
-        onclick: this.logout,
+        active: AllAccountDisplay,
+        onclick: this.showAllAccount,
         imgurl: LogoutImg
       },
       {
         text: 'Activate',
         link: '/',
         style: 'NavItem',
-        onclick: this.logout,
+        active: ActivateDisplay,
+        onclick: this.showActivates,
         imgurl: LogoutImg
       }, 
       {
-        text: 'Transaction',
+        text: 'Transactions',
         link: '/',
         style: 'NavItem',
-        onclick: this.logout,
+        active: TransactionDisplay,
+        onclick: this.showTransaction,
         imgurl: LogoutImg
       },
+      {
+        text: 'New Staff',
+        link: '/',
+        style: 'NavItem',
+        active: NewStaffDisplay,
+        onclick: this.showNewStaff,
+        imgurl: LogoutImg
+      }, 
       {
         text: 'Analytics',
         link: '/',
         style: 'NavItem',
-        onclick: this.logout,
+        active: AnalyticsDisplay,
+        onclick: this.showAnalytics,
         imgurl: LogoutImg
       },
       {
@@ -136,7 +171,42 @@ render() {
         imgurl: LogoutImg
       }
     ]}
-    ></SideNav>
+    ></SideNav> :  <SideNav
+    items ={[
+        {
+          text: 'Accounts',
+          link: '/',
+          style: 'NavItem',
+          active: accountsDisplay,
+          onclick: this.showAccount,
+          imgurl: AccountImg 
+        },
+        {
+          text: 'Profile',
+          link: '/profile',
+          style: 'NavItem',
+          active: ProfileDisplay,
+          onclick: this.showProfile,
+          imgurl: ProfileImg
+        },
+        {
+          text: 'About',
+          link: '/profile',
+          style: 'NavItem',
+          active: AboutDisplay,
+          onclick: this.showAbout,
+          imgurl: TransactionImg
+        },
+        {
+          text: 'Logout',
+          link: '/',
+          style: 'NavItem',
+          onclick: this.logout,
+          imgurl: LogoutImg
+        }
+      ]}
+      ></SideNav>
+  }
   </div>
   <div className="user_dashboard">
     {accountsDisplay === true && <Account/>}
