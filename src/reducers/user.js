@@ -33,7 +33,7 @@ const user = (state = { ...initialState }, action) => {
     case FETCH_USER_DETAILS_SUCCESS:
         return {...state, isAuth: true, UserData: action.data, authenticating: false};
     case  FETCH_USER_DETAILS_REQUEST:
-      return {...state, authenticating: true}
+      return {...state, isAuth: false, authenticating: true}
     default:
       return state;
   }

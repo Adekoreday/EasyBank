@@ -15,10 +15,6 @@ class AccountDetails extends Component {
         this.props.getAccountTransactions();
     }
 
-    componentDidUpdate() {
-        console.log("this all trnsaction has updated");
-        console.log("this is account transact", this.props);
-    }
     render() {
         const { location: { search } } = this.props;
         const {accountNumber, type, createdon, status}  = queryString.parse(search);

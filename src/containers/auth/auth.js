@@ -8,7 +8,6 @@ import {getUserDetails} from '../../action';
 
 const Auth = (props) => {
     const {getUserDetails, isAuth, authenticating} = props;
-    console.log('auth props', props);
     useLayoutEffect(() => {
         getUserDetails();
       }, []);
