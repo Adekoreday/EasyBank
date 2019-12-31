@@ -64,8 +64,8 @@ const Header = (props) => {
               {Bars()}
             </div>
             <div className="desktop-nav">
-              <Link to="/user"><div className="terms button">Terms </div></Link>
-              <Link to="/user"><div className="about button">About</div></Link>
+              <Link to="/terms"><div className="terms button">Terms </div></Link>
+              <Link to="/about"><div className="about button">About</div></Link>
               <div className="login button" onClick={props.signInOpenModal}>
                 LOG IN
               </div>
