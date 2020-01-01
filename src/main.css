@@ -11,10 +11,13 @@ body{
      margin: 0 auto;
      max-width: 1440px;
     }
+    html{
+      font-size: 62.5%;
+  }
   }
 
 html{
-    font-size: 62.5%;
+    font-size: 50.5%;
 }
 a, a:hover, a:visited {
 color: inherit;
@@ -28,6 +31,7 @@ color: inherit;
     text-align: center;
     padding: 0.7rem;
     cursor: pointer;
+    border: none;
   }
   .button:hover{
     opacity: 0.6;

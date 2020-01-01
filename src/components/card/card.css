@@ -40,6 +40,7 @@
     box-sizing: border-box;
 }
 
+
 .transaction__history{
     display: flex;
     justify-content: flex-start;
@@ -164,7 +165,21 @@ img{
     box-sizing: border-box;
     margin-right: 6rem;
 }
-
+@media only screen and (max-width: 669px){
+    .account__card__caption{
+        margin-right: 2rem;
+    }
+    .account__card__content{
+        flex-grow: 0;
+    }
+    .account__card{
+        padding: 1rem 1rem 0 1rem;
+        height: 10rem;
+    }
+    .item__list{
+        font-size: 1rem;
+    }
+}
 .account__card__caption__text{
     font-size: 7.2rem;
     margin-top: -2rem;
