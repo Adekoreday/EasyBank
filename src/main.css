@@ -11,13 +11,10 @@ body{
      margin: 0 auto;
      max-width: 1440px;
     }
-    html{
-      font-size: 62.5%;
-  }
   }
 
-html{
-    font-size: 50.5%;
+  html{
+    font-size: 62.5%;
 }
 a, a:hover, a:visited {
 color: inherit;
@@ -107,6 +104,9 @@ input:focus{
     .submit-button{
       width: 10rem !important;
     }
+    html{
+      font-size: 50.5%;
+  }
   }
 
   @keyframes moveInRight {
