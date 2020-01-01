@@ -42,6 +42,7 @@ button:focus { outline: none; }
     background: #6253F1;
     color: white;
     text-align: center;
+    margin: 0 auto;
     width: 19.1rem !important;
     border-radius: 6rem !important;
     position: absolute;
@@ -50,6 +51,8 @@ button:focus { outline: none; }
     left: 50%; /* 50% from the left */
     transform: translate(-50%, -50%);
 }
+
+
 
 .form-group{
     font-size: 1rem;
@@ -96,6 +99,9 @@ input:focus{
   @media only screen and (max-width: 669px) {
     .button{
       width: 70%;
+    }
+    .submit-button{
+      width: 10rem !important;
     }
   }
 
