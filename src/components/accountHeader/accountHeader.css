@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 669px){
+@media only screen and (max-width: 768px){
     .account__header{
         margin-right: 0rem;
     }
