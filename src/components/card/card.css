@@ -180,6 +180,13 @@ img{
         font-size: 1rem;
     }
 }
+
+@media only screen and (max-width: 669px){
+    .transaction__card__history{
+        width: 40rem;
+        font-size: 1.5rem; 
+    }
+}
 .account__card__caption__text{
     font-size: 7.2rem;
     margin-top: -2rem;
