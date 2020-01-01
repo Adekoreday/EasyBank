@@ -23,6 +23,10 @@
     padding: 0;
 }
 
+.item__name{
+    display: inline-block;
+}
+
 @media screen and (min-width: 1440px){
     .dashboard{
      margin: 0 auto;
@@ -33,6 +37,17 @@
      transform: translate(-50%, -50%);
     }
   }
+
+
+  @media only screen and (max-width: 669px){
+    .user-aside{
+        width: 16.5%;
+    }
+
+    .item__name{
+        display: none;
+    }
+}
   
 .logo-holder{
     display: flex;

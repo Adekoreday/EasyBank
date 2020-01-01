@@ -13,7 +13,7 @@ body{
     }
   }
 
-html{
+  html{
     font-size: 62.5%;
 }
 a, a:hover, a:visited {
@@ -28,6 +28,7 @@ color: inherit;
     text-align: center;
     padding: 0.7rem;
     cursor: pointer;
+    border: none;
   }
   .button:hover{
     opacity: 0.6;
@@ -103,6 +104,9 @@ input:focus{
     .submit-button{
       width: 10rem !important;
     }
+    html{
+      font-size: 50.5%;
+  }
   }
 
   @keyframes moveInRight {

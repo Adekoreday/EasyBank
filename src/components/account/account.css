@@ -8,3 +8,10 @@ width: 100vw;
     margin: 0rem 25rem;
     height: 100vh;
 }
+
+@media only screen and (max-width: 669px){
+    .account__content{
+        margin: 0rem 2rem;
+        height: 100vh;
+    }
+}

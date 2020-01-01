@@ -3,7 +3,6 @@
     padding: 0px;
     margin: 0px;
     width: 100%;
-
 }
 
 .account__header__content{
@@ -15,6 +14,16 @@
     justify-content: flex-start;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 669px){
+    .account__header{
+        margin-right: 0rem;
+    }
+    .account__header__content{
+        padding: 1.6rem 0rem 0rem 0rem;
+        margin: 0rem 3rem;
+    }
 }
 
 .account__header--focus {

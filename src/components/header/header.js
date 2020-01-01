@@ -58,7 +58,6 @@ const Header = (props) => {
 
 Header.propTypes = {
   type: PropTypes.string.isRequired,
-  onOpenNav: PropTypes.func.isRequired
 
 };
 
