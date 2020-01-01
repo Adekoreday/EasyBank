@@ -26,42 +26,10 @@ const Header = (props) => {
         template = (
           <div className="nav-bar">
             <div className="mobile-nav">
-              <SideNavigation
+            <SideNavigation
+              type="dashboard"
            {...props}
-           items={[
-             {
-               type: 'option',
-               icon: 'home',
-               text: 'Home',
-               link: '/'
-             },
-             {
-               type: 'option',
-               icon: 'file-text-o',
-               text: 'ABOUT',
-               link: '/user'
-             },
-             {
-               type: 'option',
-               icon: 'play',
-               text: 'Videos',
-               link: '/user'
-             },
-             {
-               type: 'option',
-               icon: 'sign-in',
-               text: 'Sign in',
-               link: '/user'
-             },
-             {
-               type: 'option',
-               icon: 'sign-out',
-               text: 'Sign out',
-               link: '/user'
-             }
-           ]}
           />
-              {Bars()}
             </div>
             <div className="desktop-nav">
               <Link to="/terms"><div className="terms button">Terms </div></Link>

@@ -106,6 +106,7 @@ render() {
 
   { Data.isadmin ?
     <SideNav
+  type="dashboard"
   items ={[
     {
       text: 'Accounts',
@@ -172,6 +173,7 @@ render() {
       }
     ]}
     ></SideNav> :  <SideNav
+    type="dashboard"
     items ={[
         {
           text: 'Accounts',

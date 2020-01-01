@@ -15,9 +15,138 @@
     margin-right: 20px;
     width: 25px;
     height: 25px;
-    font-size: 14px;
+    font-size: 2rem;
 }
 
 .options:hover .option__icon{
     filter: invert(10%) sepia(69%) saturate(4074%) hue-rotate(237deg) brightness(80%) contrast(128%);
 }
+
+header {
+    background-color: #fff;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .headers ul {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .headers li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+
+  .headers li a:hover,
+  .headers .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .headers .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  .headers .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .headers .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .headers .menu-icon .navicon:before,
+  .headers .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .headers .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .headers .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  .headers .menu-btn {
+    display: none;
+  }
+  
+  .headers .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .headers .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .headers .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .headers .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .headers .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .headers .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  .section {
+    overflow: hidden;
+    margin: auto;
+    max-width: 1400px;
+  }
+  
+  .section a {
+    position: relative;
+    float: left;
+    width: 100%;
+  }
+  
+  .section a img {
+    width: 100%;
+    display: block;
+  }
+  
+  .section a span {
+    color: #fff;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    font-size: 2rem;
+    text-shadow: 1px 1px 0 #000;
+  }
+  
+  .section-split a span {
+    display: none;
+  }
+  
+  .section-split a:hover span {
+    display: block;
+  }
+  
