@@ -165,7 +165,7 @@ img{
     box-sizing: border-box;
     margin-right: 6rem;
 }
-@media only screen and (max-width: 669px){
+@media only screen and (max-width: 768px){
     .account__card__caption{
         margin-right: 2rem;
     }
