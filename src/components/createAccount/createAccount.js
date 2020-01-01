@@ -119,7 +119,7 @@ class createAccount extends Component {
            <div className="indicator">{this.state.formErrors.account === null ? null : this.state.formErrors.account}</div>
           </div> 
           <div className="form-group form-group--submit">  
-            <button className="button submit-button" onClick= {this.handleSubmit} type="submit">
+            <button className="button create__account submit-button" onClick= {this.handleSubmit} type="submit">
               { this.props.loading
                 ? (
               <SyncLoader

@@ -6,7 +6,6 @@ import NairaImg from '../../images/icons/naira.svg';
 import Clock from '../../images/icons/clock.svg';
 import PreviousImg from '../../images/icons/previous.svg';
 import TransactionImg from '../../images/icons/transaction.svg';
-import Created from '../../images/icons/created.svg';
 import Status from '../../images/icons/status.svg';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
@@ -37,7 +36,7 @@ const Card = (props) => {
                  <div><div className="card__item"><img className="account__card__image" src={BalanceImg} alt="card img" /> <ul className="item__list"><li>Balance</li>{`#${balance}`}<li></li></ul></div>
                  </div>
                  <div className="account__balance"> <img className="account__card__image"  src={Status} alt="card img" /> <ul className="item__list"><li>status</li>{status}<li></li></ul></div>
-                 <div className="account__balance">  <img className="account__card__image"  src={Created} alt="card img" /> <ul className="item__list"><li>Created</li><Moment format="YYYY/MM/DD" date={createdon} >
+                 <div className="account__balance">  <img className="account__card__image"  src={Clock} alt="card img" /> <ul className="item__list"><li>Created</li><Moment format="YYYY/MM/DD" date={createdon} >
                  </Moment><li></li></ul></div>
                 </div>
              </div>

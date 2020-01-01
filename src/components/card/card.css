@@ -165,7 +165,7 @@ img{
     box-sizing: border-box;
     margin-right: 6rem;
 }
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 970px){
     .account__card__caption{
         margin-right: 2rem;
     }
@@ -178,6 +178,13 @@ img{
     }
     .item__list{
         font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 669px){
+    .transaction__card__history{
+        width: 40rem;
+        font-size: 1.5rem; 
     }
 }
 .account__card__caption__text{
