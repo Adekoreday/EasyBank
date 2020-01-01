@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import {
-  openModal, closeModal, openNavbar, closeNavbar, siginUser,
+  openModal, closeModal, siginUser,
   sigupUser,
   signInCloseModal,
   signUpCloseModal,
@@ -63,9 +63,6 @@ class Home extends Component {
         ) : ''}
         <Header
            type="homepage"
-           onOpenNav={this.props.openNavbar}
-           showNav={this.props.navbarStatus}
-           onCloseNav={this.props.closeNavbar}
            signInOpenModal={this.props.signInOpenModal}
            signUpOpenModal={this.props.signUpOpenModal}
          />
@@ -77,11 +74,8 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  openNavbar: PropTypes.func.isRequired,
-  closeNavbar: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
   modalStatus: PropTypes.bool.isRequired,
-  navbarStatus: PropTypes.bool.isRequired,
   signInmodalStatus: PropTypes.bool.isRequired,
   signUpmodalStatus: PropTypes.bool.isRequired,
   signInCloseModal: PropTypes.func.isRequired,
@@ -96,18 +90,17 @@ Home.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const { navbar, modal, user } = state;
+  const { modal, user } = state;
   const { UserData, loading, isSignedIn, isSignedUp } = user;
-  const { navbarStatus } = navbar;
   const {
     modalStatus, signInmodalStatus, signUpmodalStatus,
   } = modal;
   return {
-    navbarStatus, modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading
+     modalStatus, signInmodalStatus,isSignedIn, isSignedUp, signUpmodalStatus, UserData, loading
   };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({
-  openModal, closeModal, openNavbar, closeNavbar, sigupUser, signInCloseModal, signUpCloseModal, signUpOpenModal, signInOpenModal, siginUser, clearUserData
+  openModal, closeModal, sigupUser, signInCloseModal, signUpCloseModal, signUpOpenModal, signInOpenModal, siginUser, clearUserData
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,11 +1,9 @@
 import * as modal from './modal';
-import * as navbar from './navbar';
 import * as user from './user';
 
 const {
   openModal, closeModal, signInCloseModal, signUpCloseModal, signUpOpenModal, signInOpenModal
 } = modal;
-const { openNavbar, closeNavbar } = navbar;
 const {
   siginUser, sigupUser, clearUserData, getUserDetails
 } = user;
@@ -13,8 +11,6 @@ const {
 export {
   openModal,
   closeModal,
-  openNavbar,
-  closeNavbar,
   siginUser,
   sigupUser,
   signInCloseModal,
