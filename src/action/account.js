@@ -23,6 +23,27 @@ export const getAllAccount = () => async (dispatch) => {
     }
   }
 
+  export const getAllUsersAccount = () => async (dispatch) => {
+    let data;
+    dispatch({ type: types.GET_ALL_USERS_ACCOUNTS_REQUEST });
+    try{
+      const response = await asyncRequest('get', `/api/v1/accounts`, null);
+      const {data} = response.data
+      console.log(data, "this is the all accounts");
+      dispatch({
+        type: types.GET_ALL_USERS_ACCOUNTS_SUCCESS,
+        data
+      });
+    } catch (e) {
+      data = e.response === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
+      dispatch({
+        type: types.GET_ALL_USERS_ACCOUNTS_FAILURE,
+        data
+      });
+    }
+  }
+
+
   export const createAccounts = (details) => async (dispatch) => {
     let data;
     dispatch({ type: types.CREATE_ACCOUNTS_REQUEST });

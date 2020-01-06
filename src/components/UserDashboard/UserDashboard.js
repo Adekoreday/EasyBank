@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SideNav from '../sideNav';
 import Account from '../account/account';
 import Profile from '../profile/profile';
+import AllUserAccount from '../allUserAccount/allUserAccount';
 import About from '../about/about';
 import { connect } from 'react-redux';
 import AccountImg from '../../images/icons/ecommerce_graph2.svg';
@@ -214,6 +215,7 @@ render() {
     {accountsDisplay === true && <Account/>}
     {ProfileDisplay === true && (<Profile UserData={UserData}/>)}
     {AboutDisplay === true && (<About />)}
+    {AllAccountDisplay === true && <AllUserAccount/>}
   </div>
   </div>)
 };
