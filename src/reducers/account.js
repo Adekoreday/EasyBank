@@ -1,8 +1,15 @@
 import {
-    GET_ALL_ACCOUNTS_REQUEST, GET_ALL_ACCOUNTS_FAILURE, GET_ALL_ACCOUNTS_SUCCESS, CREATE_ACCOUNTS_REQUEST, CREATE_ACCOUNTS_SUCCESS, CREATE_ACCOUNTS_FAILURE, GET_ACCOUNT_REQUEST, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_FAILURE
+    GET_ALL_ACCOUNTS_REQUEST, GET_ALL_ACCOUNTS_FAILURE, GET_ALL_ACCOUNTS_SUCCESS, CREATE_ACCOUNTS_REQUEST, CREATE_ACCOUNTS_SUCCESS,
+    CREATE_ACCOUNTS_FAILURE, GET_ACCOUNT_REQUEST, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_FAILURE, GET_ALL_USERS_ACCOUNTS_REQUEST, GET_ALL_USERS_ACCOUNTS_FAILURE,
+    GET_ALL_USERS_ACCOUNTS_SUCCESS
+
   } from '../actionTypes/actionTypes';
   
   const initialState = {
+    allUsersAccount: {},
+    isfailedAllUsersAccounts: {},
+    isallUserAccountLoading: false,
+    isSuccessAllUsersAccount: false,
     allAccount: {},
     accountTransaction: [],
     isfailedAllAccount: {},
@@ -20,22 +27,28 @@ import {
     switch (action.type) {
          case GET_ALL_ACCOUNTS_REQUEST:
          return { ...state, loading: true, isSuccess: false, allAccount: {}, isfailedAllAccount: {} };
+         case GET_ALL_ACCOUNTS_FAILURE:
+          return { ...state, loading: false, isSuccess: false, isfailedAllAccount: action.data };
+         case GET_ALL_ACCOUNTS_SUCCESS:
+            return { ...state, loading: false, isSuccess: true, allAccount: action.data};
          case CREATE_ACCOUNTS_REQUEST:
           return { ...state, createAccountloading: true, isSucessCreateAccount: false , createdAccount: {}, isfailedCreateAccount: {}};
-         case GET_ALL_ACCOUNTS_FAILURE:
-         return { ...state, loading: false, isSuccess: false, isfailedAllAccount: action.data };
          case CREATE_ACCOUNTS_FAILURE:
           return { ...state, createAccountloading: false, isfailedCreateAccount: action.data, isSucessCreateAccount: false};
-         case GET_ALL_ACCOUNTS_SUCCESS:
-          return { ...state, loading: false, isSuccess: true, allAccount: action.data};
          case CREATE_ACCOUNTS_SUCCESS:
           return { ...state, createAccountloading: false, isSucessCreateAccount: true, createdAccount: action.data};
          case GET_ACCOUNT_REQUEST:
-           return {...state, getAccountLoading: true,   accountTransaction: []}
+           return {...state, getAccountLoading: true,   accountTransaction: []};
+         case GET_ACCOUNT_FAILURE: 
+          return {...state, getAccountLoading: false, isfailedGetAccountTransaction: action.data };
          case GET_ACCOUNT_SUCCESS:
-          return {...state, accountTransaction: action.data, getAccountLoading: false}
-        case GET_ACCOUNT_FAILURE: 
-          return {...state, getAccountLoading: false, isfailedGetAccountTransaction: action.data }
+            return {...state, accountTransaction: action.data, getAccountLoading: false};
+         case GET_ALL_USERS_ACCOUNTS_REQUEST:
+         return { ...state, isallUserAccountLoading: true, isSuccessAllUsersAccount: false, allUsersAccount: {}, isfailedAllUsersAccounts: {} };
+         case GET_ALL_USERS_ACCOUNTS_FAILURE:
+          return { ...state, isallUserAccountLoading: false, isSuccessAllUsersAccount: false, isfailedAllUsersAccounts: action.data };
+         case GET_ALL_USERS_ACCOUNTS_SUCCESS:
+            return { ...state, isallUserAccountLoading: false, isSuccessAllUsersAccount: true, allUsersAccount: action.data};
       default:
         return state;
     }

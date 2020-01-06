@@ -98,6 +98,9 @@ input:focus{
   }
   
   @media only screen and (max-width: 669px) {
+    body{
+      margin: 0;
+    }
     .button{
       width: 70%;
     }
