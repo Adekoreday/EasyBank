@@ -3,6 +3,8 @@ import SideNav from '../sideNav';
 import Account from '../account/account';
 import Profile from '../profile/profile';
 import AllUserAccount from '../allUserAccount/allUserAccount';
+import Transaction from '../Transaction/transaction';
+import { toast } from 'react-toastify';
 import About from '../about/about';
 import { connect } from 'react-redux';
 import AccountImg from '../../images/icons/ecommerce_graph2.svg';
@@ -28,6 +30,10 @@ class UserDashBoard extends Component  {
       ActivateDisplay: false
     }
   };
+
+  notify = msg => toast.error(msg, {
+    className: 'notify'
+  });    
 
   toggleState = (data) => {
     const newState = {
@@ -134,6 +140,14 @@ render() {
         imgurl: LogoutImg
       },
       {
+        text: 'Transact',
+        link: '/',
+        style: 'NavItem',
+        active: TransactionDisplay,
+        onclick: this.showTransaction,
+        imgurl: LogoutImg
+      },
+      {
         text: 'Activate',
         link: '/',
         style: 'NavItem',
@@ -141,14 +155,6 @@ render() {
         onclick: this.showActivates,
         imgurl: LogoutImg
       }, 
-      {
-        text: 'Transactions',
-        link: '/',
-        style: 'NavItem',
-        active: TransactionDisplay,
-        onclick: this.showTransaction,
-        imgurl: LogoutImg
-      },
       {
         text: 'New Staff',
         link: '/',
@@ -212,10 +218,11 @@ render() {
   }
   </div>
   <div className="user_dashboard">
-    {accountsDisplay === true && <Account/>}
+    {accountsDisplay === true && <Account notify={this.notify}/>}
     {ProfileDisplay === true && (<Profile UserData={UserData}/>)}
     {AboutDisplay === true && (<About />)}
     {AllAccountDisplay === true && <AllUserAccount/>}
+    { TransactionDisplay ===true && <Transaction notify={this.notify}/>}
   </div>
   </div>)
 };

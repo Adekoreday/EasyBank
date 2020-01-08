@@ -45,7 +45,7 @@ class createAccount extends Component {
       switch (fieldName) {
         case 'amount':
           accountValid = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/.test(value);
-          formErrors.account = accountValid ? null : ' account must be positive numbers';
+          formErrors.account = accountValid ? null : ' amount must be positive numbers';
           break;
           case 'selectInput':
             selectedOptionValid = value.length >= 3;
@@ -112,7 +112,7 @@ class createAccount extends Component {
             type="number"
             id="amount"
             placeholder="OPENING BALANCE"
-            value={this.state.email}
+            value={this.state.amount}
             onChange={this.inputChangeHandler}
             onBlur={this.blurHandler}
           />
