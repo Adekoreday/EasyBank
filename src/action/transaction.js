@@ -22,3 +22,23 @@ export const getTransaction = () => async (dispatch) => {
       });
     }
   }
+
+  export const postTransact = (details, accountnumber, transactionType) => async(dispatch) => {
+    let data;
+    dispatch({ type: types.POST_TRANSACTION_REQUEST });
+    try{
+      const response = await asyncRequest('post', `/api/v1/transactions/${accountnumber}/${transactionType}`, details);
+      const {data} = response.data
+      console.log(data,"this is my data");
+      dispatch({
+        type: types.POST_TRANSACTION_SUCCESS,
+        data
+      });
+    } catch (e) {
+     data = e.response === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
+      dispatch({
+        type: types.POST_TRANSACTION_FAILURE,
+        data
+      });
+    }
+  }

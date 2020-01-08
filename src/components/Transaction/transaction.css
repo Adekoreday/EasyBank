@@ -1,0 +1,15 @@
+.transactionAccountContainer{
+    margin: 0rem 25rem;
+    padding: 0;
+}
+
+.user__transaction{
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 970px) {
+  .transactionAccountContainer{
+    margin: 0rem 1rem;
+    padding: 0;
+}
+}

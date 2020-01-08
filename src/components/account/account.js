@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import AccountHeader from '../accountHeader/accountHeader';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toast } from 'react-toastify';
 import {getAllAccount, createAccounts} from '../../action/account';
 import AllAccount from '../allAccount/allAccount';
 import CreateAccount from '../createAccount/createAccount';
@@ -18,10 +17,6 @@ class Account extends Component {
             showCreateAccount: false
         }
     }
-
-    notify = msg => toast.error(msg, {
-        className: 'notify'
-      });    
 
     componentDidMount() {
         this.props.getAllAccount();  
@@ -70,7 +65,7 @@ class Account extends Component {
             </div>}
             {(showCreateAccount) && <div className="account__content">
             <CreateAccount
-             notify={this.notify}
+             notify={this.props.notify}
              createAccounts={createAccounts}
              isfailedCreateAccount={isfailedCreateAccount}
              createAccounts={createAccounts}
