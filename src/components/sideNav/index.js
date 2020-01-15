@@ -36,7 +36,8 @@ const SideNav = (props) => {
         default:
             template=null;
     }
-    return <div>{template}</div>;
+    return <div>{template}
+    </div>;
 }
 
 export default SideNav;
