@@ -4,6 +4,7 @@ import Account from '../account/account';
 import Profile from '../profile/profile';
 import AllUserAccount from '../allUserAccount/allUserAccount';
 import Transaction from '../Transaction/transaction';
+import Activate from '../activate/activate';
 import { toast } from 'react-toastify';
 import About from '../about/about';
 import { connect } from 'react-redux';
@@ -222,7 +223,8 @@ render() {
     {ProfileDisplay === true && (<Profile UserData={UserData}/>)}
     {AboutDisplay === true && (<About />)}
     {AllAccountDisplay === true && <AllUserAccount/>}
-    { TransactionDisplay ===true && <Transaction notify={this.notify}/>}
+    {TransactionDisplay ===true && <Transaction notify={this.notify}/>}
+    {ActivateDisplay === true && <Activate />}
   </div>
   </div>)
 };

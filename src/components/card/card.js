@@ -28,7 +28,7 @@ const Card = (props) => {
     const {accountnumber, balance, createdon, status, type} = details;
     return(
       <Link to={`account?accountNumber=${accountnumber}&createdon=${createdon}&status=${status}&type=${type}`}>
-    <div className="account__card">
+          <div className="account__card">
              <div className={type[0] === 's' ? "savings account__card__caption " : "account__card__caption"}><div className="account__card__caption__text">{type[0]}</div></div>
              <div className="account__card__content">
                <div className="account__balance"> <img className="account__card__image"  src={AccountImage} alt="card img" /> <ul className="item__list"><li>Account No</li>{accountnumber}<li></li></ul></div>

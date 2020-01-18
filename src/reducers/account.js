@@ -6,7 +6,7 @@ import {
   } from '../actionTypes/actionTypes';
   
   const initialState = {
-    allUsersAccount: {},
+    allUsersAccount: [],
     isfailedAllUsersAccounts: {},
     isallUserAccountLoading: false,
     isSuccessAllUsersAccount: false,
@@ -44,7 +44,7 @@ import {
          case GET_ACCOUNT_SUCCESS:
             return {...state, accountTransaction: action.data, getAccountLoading: false};
          case GET_ALL_USERS_ACCOUNTS_REQUEST:
-         return { ...state, isallUserAccountLoading: true, isSuccessAllUsersAccount: false, allUsersAccount: {}, isfailedAllUsersAccounts: {} };
+         return { ...state, isallUserAccountLoading: true, isSuccessAllUsersAccount: false, allUsersAccount: [], isfailedAllUsersAccounts: {} };
          case GET_ALL_USERS_ACCOUNTS_FAILURE:
           return { ...state, isallUserAccountLoading: false, isSuccessAllUsersAccount: false, isfailedAllUsersAccounts: action.data };
          case GET_ALL_USERS_ACCOUNTS_SUCCESS:

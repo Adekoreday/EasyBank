@@ -6,6 +6,7 @@ const Default = () => {
     return(
         <div className="defaultImg">
             <img src={DefImg}></img>
+            <div>Session expired Kindly login</div>
         </div>
     )
 }
