@@ -1,6 +1,6 @@
 import React, {useEffect, useCallback} from 'react';
-import Spinner from '../spinners/Spinner';
 import { useSelector } from "react-redux";
+import Slider from '../slider/slider';
 import { createSelector } from 'reselect';
 import Moment from 'react-moment';
 import Default from '../default';
@@ -135,7 +135,7 @@ const Table  = () => {
         type: item.type,
         balance: item.balance,
         status: item.status,
-      activate: item.status=== 'active' ? <div>activate {key}</div> : <div>deactivate {key}</div>
+      activate: <Slider />
       }))
           return filteredArray;
         });

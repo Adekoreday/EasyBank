@@ -24,7 +24,7 @@ table {
   
   table th,
   table td {
-    padding: 30px;
+    padding: 1rem;
     text-align: center;
   }
   .big-content{
@@ -83,14 +83,14 @@ table {
     table tr {
       border-bottom: 3px solid #ddd;
       display: block;
-      margin-bottom: .625em;
+      margin-bottom: 1rem;
     }
     
     table td {
       border-bottom: 1px solid #ddd;
       display: block;
       font-size: 1em;
-      text-align: right;
+      text-align: center;
     }
     
     table td::before {
@@ -100,7 +100,7 @@ table {
       text-transform: uppercase;
     }
     tr:nth-child(even) {
-    background-color: #d42ece;
+    background-color: #6C5DFB;
     color:#fff;
   }
     
