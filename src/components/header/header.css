@@ -12,6 +12,7 @@ a {
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
+    margin: 2rem;
 }
 
 .terms {

@@ -1,0 +1,36 @@
+.activate__account{
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+    }
+    .sucess__request{
+        color: blue;
+    }
+    .failure_request{
+        color: red;
+    }
+    .activate__modal{
+        margin: 1rem auto;
+    }
+    .activate__modal__content{
+        margin: 2rem auto;
+    }
+    .activate__account__content{
+        margin: 3rem 5rem 0 5rem;
+        height: 100vh;
+    }
+    @media only screen and (max-width: 970px){
+        .activate__account__content{
+            margin: 0rem 2rem;
+            height: 100vh;
+        }
+    }
+    .activate{
+        color: green;
+        margin: 0 .5rem;
+    }
+
+    .deactivate{
+        color: red;
+        margin: 0 .5rem;
+    }

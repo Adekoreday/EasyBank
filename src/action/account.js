@@ -83,3 +83,30 @@ export const getAllAccount = () => async (dispatch) => {
     }
   }
 
+  export const activateAccount = ({accountNumber, status}) => async (dispatch) => {
+    const details = {
+      status: (status=='active') ? 'draft': 'active',
+    }
+    dispatch({type: types.ACTIVATE_ACCOUNT_REQUEST });
+    let data;
+    try{
+      const response = await asyncRequest('patch', `/api/v1/account/${accountNumber}`, details);
+      data = {
+        status: response.data.data.status,
+        accountNumber
+      }
+      dispatch({type: types.ACTIVATE_ACCOUNT_SUCCESS, data });
+    }catch(e) {
+      data = e.response === undefined ? {status: 599, msg: 'NETWORK ERROR'} : e.response.data;
+      dispatch({
+        type: types.ACTIVATE_ACCOUNT_FAILURE,
+        data
+      }); 
+    };
+  }
+
+  export const reportActivateModalDetails = ({status, accountNumber}) => ({
+    type: types.POST_MODAL_ACCOUNT,
+    data: {status, accountNumber}
+  });
+

@@ -38,6 +38,12 @@ color: inherit;
 
 button:focus { outline: none; }
 
+.confirm-button{
+  background: #6253F1;
+  color: #FFFF;
+  padding: 1rem;
+}
+
 .submit-button{
     text-transform: uppercase;
     background: #6253F1;
@@ -107,6 +113,7 @@ input:focus{
     .submit-button{
       width: 10rem !important;
     }
+
     html{
       font-size: 50.5%;
   }
