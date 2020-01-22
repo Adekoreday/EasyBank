@@ -111,6 +111,7 @@ table {
     }
   }
   .pagination{
+    cursor: pointer;
     padding: 1rem;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
     width: 40%;
@@ -120,4 +121,7 @@ table {
 
   .pagination__item{
     margin-right: .8rem;
+  }
+  .pagination__item:hover{
+    background: white;
   }
