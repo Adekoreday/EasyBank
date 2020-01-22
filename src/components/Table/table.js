@@ -1,9 +1,8 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useState} from 'react';
 import { useSelector } from "react-redux";
 import Slider from '../slider/slider';
 import { createSelector } from 'reselect';
 import Moment from 'react-moment';
-import Default from '../default';
 import { useTable, usePagination } from 'react-table';
 import './table.css';
 
@@ -57,18 +56,18 @@ const ReactTable = ({ columns, data}) => {
         </tbody>
     </table>
     <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <div className="pagination__item" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        </div>{' '}
+        <div className="pagination__item" onClick={() => previousPage()} disabled={!canPreviousPage}>
+          {'Prev'}
+        </div>{' '}
+        <div className="pagination__item" onClick={() => nextPage()} disabled={!canNextPage}>
+          {'Next'}
+        </div>{' '}
+        <div className="pagination__item" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           {'>>'}
-        </button>{' '}
+        </div>{' '}
         <span>
           Page{' '}
           <strong>
@@ -101,10 +100,18 @@ const Table  = () => {
             {
                     Header: 'S/N',
                     accessor: 'no',
-            },   
+            },
             {
-                    Header: 'Created On',
-                    accessor: 'createdon',
+              Header: 'Account Number',
+              accessor: 'accountnumber',
+           },
+           {
+              Header: 'Email',
+              accessor: 'email',
+           },
+            {
+               Header: 'Created On',
+               accessor: 'createdon',
             },       
               {
                 Header: 'Type',
@@ -131,11 +138,13 @@ const Table  = () => {
       const filteredAccount = createSelector(allAccountSelector, (allAccount) => {
       var filteredArray =  allAccount.map((item, key)=> ({
         no: ++key,
+        accountnumber: item.accountnumber,
+        email: item.email,
         createdon: <div><Moment format="YYYY/MM/DD" date={item.createdon}></Moment></div>,
         type: item.type,
         balance: item.balance,
         status: item.status,
-      activate: <Slider />
+      activate: <Slider accountNumber={item.accountnumber} status={item.status}/>
       }))
           return filteredArray;
         });

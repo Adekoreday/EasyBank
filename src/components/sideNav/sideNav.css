@@ -13,8 +13,9 @@
 }
 .option__icon{
     margin-right: 20px;
-    width: 25px;
-    height: auto;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
     font-size: 2rem;
 }
 

@@ -3,13 +3,15 @@ import {
   SIGNUP_CLOSE_MODAL,
   SIGNIN_CLOSE_MODAL,
   SIGNUP_OPEN_MODAL,
-  SIGNIN_OPEN_MODAL
+  SIGNIN_OPEN_MODAL,
+  POST_MODAL_ACCOUNT
 } from '../actionTypes/actionTypes';
 
 const initialState = {
   modalStatus: false,
   signInmodalStatus: false,
-  signUpmodalStatus: false
+  signUpmodalStatus: false,
+  activateData: null
 };
 
 const modal = (state = { ...initialState }, action) => {
@@ -26,6 +28,8 @@ const modal = (state = { ...initialState }, action) => {
       return { ...state, signInmodalStatus: false };
     case SIGNIN_OPEN_MODAL:
       return { ...state, signInmodalStatus: true };
+    case POST_MODAL_ACCOUNT:
+      return {...state, activateData: action.data}
     default:
       return state;
   }

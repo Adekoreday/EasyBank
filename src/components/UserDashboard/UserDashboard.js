@@ -224,7 +224,7 @@ render() {
     {AboutDisplay === true && (<About />)}
     {AllAccountDisplay === true && <AllUserAccount/>}
     {TransactionDisplay ===true && <Transaction notify={this.notify}/>}
-    {ActivateDisplay === true && <Activate />}
+    {ActivateDisplay === true && <Activate notify={this.notify}/>}
   </div>
   </div>)
 };

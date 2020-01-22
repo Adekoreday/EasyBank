@@ -1,11 +1,14 @@
 import {
     GET_ALL_ACCOUNTS_REQUEST, GET_ALL_ACCOUNTS_FAILURE, GET_ALL_ACCOUNTS_SUCCESS, CREATE_ACCOUNTS_REQUEST, CREATE_ACCOUNTS_SUCCESS,
     CREATE_ACCOUNTS_FAILURE, GET_ACCOUNT_REQUEST, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_FAILURE, GET_ALL_USERS_ACCOUNTS_REQUEST, GET_ALL_USERS_ACCOUNTS_FAILURE,
-    GET_ALL_USERS_ACCOUNTS_SUCCESS
-
+    GET_ALL_USERS_ACCOUNTS_SUCCESS, ACTIVATE_ACCOUNT_FAILURE, ACTIVATE_ACCOUNT_REQUEST, ACTIVATE_ACCOUNT_SUCCESS
   } from '../actionTypes/actionTypes';
   
   const initialState = {
+    activateAccount: null,
+    isactivateAccountFailed: null,
+    isactivateAccountSucess: false,
+    activateAccountLoading: false,
     allUsersAccount: [],
     isfailedAllUsersAccounts: {},
     isallUserAccountLoading: false,
@@ -49,6 +52,12 @@ import {
           return { ...state, isallUserAccountLoading: false, isSuccessAllUsersAccount: false, isfailedAllUsersAccounts: action.data };
          case GET_ALL_USERS_ACCOUNTS_SUCCESS:
             return { ...state, isallUserAccountLoading: false, isSuccessAllUsersAccount: true, allUsersAccount: action.data};
+         case ACTIVATE_ACCOUNT_REQUEST: 
+            return {...state, activateAccountLoading: true, isactivateAccountSucess:false, activateAccount: null, isactivateAccountFailed: null};
+         case ACTIVATE_ACCOUNT_SUCCESS:
+            return {...state, activateAccountLoading: false, isactivateAccountSucess:true, activateAccount: action.data};
+         case ACTIVATE_ACCOUNT_FAILURE:
+            return {...state, activateAccountLoading: false, isactivateAccountSucess:false, isactivateAccountFailed: action.data};
       default:
         return state;
     }

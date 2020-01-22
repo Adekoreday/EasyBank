@@ -1,6 +1,5 @@
 table {
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 1em;
     overflow: hidden;
     border-collapse: collapse;
     padding: 0;
@@ -26,6 +25,9 @@ table {
   table td {
     padding: 1rem;
     text-align: center;
+  }
+  td{
+    overflow: auto;
   }
   .big-content{
    word-wrap: break-word;
@@ -107,4 +109,15 @@ table {
     table td:last-child {
       border-bottom: 0;
     }
+  }
+  .pagination{
+    padding: 1rem;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    width: 40%;
+    display: flex;
+    margin: 1rem auto;
+  }
+
+  .pagination__item{
+    margin-right: .8rem;
   }
