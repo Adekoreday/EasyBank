@@ -9,6 +9,9 @@ import { toast } from 'react-toastify';
 import About from '../about/about';
 import { connect } from 'react-redux';
 import AccountImg from '../../images/icons/ecommerce_graph2.svg';
+import ActivateImg from '../../images/icons/activate.svg';
+import AllAccountImg from '../../images/icons/allAccounts.svg';
+import TransactImg from '../../images/icons/transaction.svg';
 import LogoutImg from '../../images/icons/logout.svg';
 import ProfileImg from '../../images/icons/perm_identity-24px.svg';
 import {clearFromStorage} from '../../helpers/storage';
@@ -138,7 +141,7 @@ render() {
         style: 'NavItem',
         active: AllAccountDisplay,
         onclick: this.showAllAccount,
-        imgurl: LogoutImg
+        imgurl: AllAccountImg
       },
       {
         text: 'Transact',
@@ -146,7 +149,7 @@ render() {
         style: 'NavItem',
         active: TransactionDisplay,
         onclick: this.showTransaction,
-        imgurl: LogoutImg
+        imgurl: TransactImg
       },
       {
         text: 'Activate',
@@ -154,7 +157,7 @@ render() {
         style: 'NavItem',
         active: ActivateDisplay,
         onclick: this.showActivates,
-        imgurl: LogoutImg
+        imgurl: ActivateImg
       }, 
       {
         text: 'New Staff',
