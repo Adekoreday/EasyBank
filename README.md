@@ -13,10 +13,6 @@ List of functionalities of the application
 - User Dashboard
 <img src="https://res.cloudinary.com/kaytronics/image/upload/v1581016039/samples/Screen_Shot_2020-01-31_at_8.30.23_PM_bhqwxb.png"></img>
 
-- User View Account Details
-
-<img src="https://res.cloudinary.com/kaytronics/image/upload/v1581023552/samples/Screen_Shot_2020-02-06_at_10.11.42_PM_i0dvdk.png"></img>
-
 - User Create Account
 <img src="https://res.cloudinary.com/kaytronics/image/upload/v1581023870/samples/Screen_Shot_2020-02-06_at_10.17.17_PM_pay7es.png"></img>
 
@@ -30,3 +26,4 @@ List of functionalities of the application
 
 <img src="https://res.cloudinary.com/kaytronics/image/upload/v1581016046/samples/Screen_Shot_2020-01-31_at_8.31.11_PM_coo9mt.png"></img>
   
+And More....
