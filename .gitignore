@@ -3,3 +3,5 @@ coverage
 build
 .github
 .env
+chromedriver.log
+tests_output
