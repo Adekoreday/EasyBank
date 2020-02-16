@@ -33,6 +33,7 @@
     background-color: white;
     border-radius: .4rem;
     font-weight: 200;
+    display: 'flex';
 }
 
 .card__data img{
