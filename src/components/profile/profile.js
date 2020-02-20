@@ -33,8 +33,8 @@ const useStyles = makeStyles(() => createStyles({
   root: {
     marginRight: '10px',
     borderRadius: '50%',
-    width: '100px',
-    height: '100px',
+    width: '70px',
+    height: '70px',
     backgroundColor: 'none',
     fontSize: '32px'
   },
