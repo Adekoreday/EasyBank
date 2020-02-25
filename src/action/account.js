@@ -29,7 +29,6 @@ export const getAllUsersAccount = () => async (dispatch) => {
   try {
     const response = await asyncRequest('get', '/api/v1/accounts', null);
     const { data } = response.data;
-    console.log(data, 'this is the all accounts');
     dispatch({
       type: types.GET_ALL_USERS_ACCOUNTS_SUCCESS,
       data

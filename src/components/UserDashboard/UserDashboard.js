@@ -110,7 +110,6 @@ class UserDashBoard extends Component {
     } = this.state.settings;
     const { UserData } = this.props;
     const { Data } = UserData;
-    console.log(Data, 'this is the users data');
     return (
       <div className="dashboard">
         <div className="user-aside">
