@@ -4,7 +4,6 @@ import Spinner from '../spinners/Spinner';
 import Default from '../default';
 
 const AllAccount = (props) => {
-  console.log('all account props', props);
   const { allAccount } = props;
   const showAllAccount = () => allAccount.map((item, i) => (
     <div key={i}>

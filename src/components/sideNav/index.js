@@ -32,7 +32,6 @@ const SideNav = (props) => {
       break;
     case 'homepage':
       template = showMobileNav(items);
-      console.log(props);
       break;
     default:
       template = null;
