@@ -4,6 +4,8 @@
 
 ### a light weight banking application
 by Adeyemi Adekorede
+#### [API DOCS](https://bankaandela.herokuapp.com/api-docs/)
+#### [BACKEND REPO & Vanilla.js front end](https://github.com/Adekoreday/BankaApp-vanilla.js])
 
 List of functionalities of the application
 
@@ -26,3 +28,4 @@ List of functionalities of the application
 <img src="https://res.cloudinary.com/kaytronics/image/upload/v1582688087/Screen_Shot_2020-02-26_at_4.25.55_AM_yafo5o.png"></img>
   
 And Many More....
+
