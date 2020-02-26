@@ -11,19 +11,18 @@ List of functionalities of the application
 - SIGN UP
 
 - User Dashboard
-<img src="https://res.cloudinary.com/kaytronics/image/upload/v1581016039/samples/Screen_Shot_2020-01-31_at_8.30.23_PM_bhqwxb.png"></img>
+<img src="https://res.cloudinary.com/kaytronics/image/upload/v1582688253/Screen_Shot_2020-02-26_at_4.37.08_AM_rtwv5s.png"></img>
 
-- User Create Account
-<img src="https://res.cloudinary.com/kaytronics/image/upload/v1581023870/samples/Screen_Shot_2020-02-06_at_10.17.17_PM_pay7es.png"></img>
 
 - Admin DashBoard
-<img src="https://res.cloudinary.com/kaytronics/image/upload/v1581022852/samples/Screen_Shot_2020-02-06_at_9.59.45_PM_mspikm.png"></img>
-
-- Admin credit/debit User Account
-<img src="https://res.cloudinary.com/kaytronics/image/upload/v1581016043/samples/Screen_Shot_2020-01-31_at_8.30.53_PM_cnmbat.png"></img>
+<img src="https://res.cloudinary.com/kaytronics/image/upload/v1582688049/Screen_Shot_2020-02-26_at_4.27.34_AM_nfpwmo.png"></img>
 
 - Admin Activate/Deactivate User
 
-<img src="https://res.cloudinary.com/kaytronics/image/upload/v1581016046/samples/Screen_Shot_2020-01-31_at_8.31.11_PM_coo9mt.png"></img>
+<img src="https://res.cloudinary.com/kaytronics/image/upload/v1582688063/Screen_Shot_2020-02-26_at_4.27.01_AM_l29z2z.png"></img>
+
+- Admin Analytics
+
+<img src="https://res.cloudinary.com/kaytronics/image/upload/v1582688087/Screen_Shot_2020-02-26_at_4.25.55_AM_yafo5o.png"></img>
   
-And More....
+And Many More....
