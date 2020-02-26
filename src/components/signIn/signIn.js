@@ -23,7 +23,7 @@ class SignIn extends Component {
       const { msg, Data } = UserData;
       if (status === 200) {
         this.redirectToDashboard(Data);
-      }else{
+      } else {
         this.props.notify(msg);
         this.props.clearUserData();
       }
@@ -36,7 +36,7 @@ class SignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if(!this.state.formValid) return;
+    if (!this.state.formValid) return;
     const { email, password } = this.state;
     this.props.siginUser({ email, password });
   }
@@ -52,7 +52,7 @@ class SignIn extends Component {
     localStorage.clear();
     localStorage.setItem('mail', email);
     localStorage.setItem('token', token);
-    if(this.props.isSignedIn === true){
+    if (this.props.isSignedIn === true) {
       const { history } = this.props;
       if (history) history.push(this.props.from);
     }
@@ -114,20 +114,19 @@ class SignIn extends Component {
           <div className="indicator">{this.state.formErrors.password === null ? null : this.state.formErrors.password}</div>
         </div>
 
-        <div className="form-group form-group--submit">  
-        <button onClick= { this.handleSubmit} className="button submit-button" type="submit">
-          { this.props.loading
-            ? (
-          <SyncLoader
+        <div className="form-group form-group--submit">
+          <button onClick={this.handleSubmit} className="button submit-button" type="submit">
+            { this.props.loading
+              ? (
+                <SyncLoader
           sizeUnit="px"
           size={15}
           color="#ffff"
           loading={this.props.loading}
         />
-            )
-            : 'Sign In'
-        }
-        </button>
+              )
+              : 'Sign In'}
+          </button>
         </div>
       </form>
     );
