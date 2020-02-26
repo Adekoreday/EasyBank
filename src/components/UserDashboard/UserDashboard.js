@@ -16,8 +16,10 @@ import AllAccountImg from '../../images/icons/allAccounts.svg';
 import TransactImg from '../../images/icons/transaction.svg';
 import LogoutImg from '../../images/icons/logout.svg';
 import ProfileImg from '../../images/icons/perm_identity-24px.svg';
+import AnalyticsLogo from '../../images/icons/analytics.svg';
 import { clearFromStorage } from '../../helpers/storage';
 import TransactionImg from '../../images/icons/ecommerce_dollar.svg';
+import staffLogo from '../../images/icons/staff.svg';
 import './UserDashboard.css';
 
 
@@ -171,7 +173,7 @@ class UserDashBoard extends Component {
       style: 'NavItem',
       active: NewStaffDisplay,
       onclick: this.showNewStaff,
-      imgurl: LogoutImg
+      imgurl: staffLogo
     },
     {
       text: 'Analytics',
@@ -179,7 +181,7 @@ class UserDashBoard extends Component {
       style: 'NavItem',
       active: AnalyticsDisplay,
       onclick: this.showAnalytics,
-      imgurl: LogoutImg
+      imgurl: AnalyticsLogo
     },
     {
       text: 'Logout',
