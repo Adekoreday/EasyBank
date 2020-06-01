@@ -75,7 +75,7 @@
     "html-loader": "^0.5.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.1.0",
-    "nyc": "^15.0.0",
+    "nyc": "^15.1.0",
     "redux-mock-store": "^1.5.3",
     "style-loader": "^1.1.3"
   },
