@@ -4,8 +4,8 @@ import './about.css';
 const About = () => {
   return(
     <div className="about__content">
-      <h2 className="header">Banka</h2>
-      <div className="">Banka is a light weight banking application designed to support small scale to medium banking
+      <h2 className="header">EASY BANK</h2>
+      <div className="">Easy bank is a light weight banking application designed to support small scale to medium banking
         operations.
         <div className="sub__content">Users are expected to be able to do the following on banka </div> 
       </div>
