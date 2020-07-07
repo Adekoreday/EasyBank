@@ -119,7 +119,7 @@ class UserDashBoard extends Component {
             {' '}
             <div className="logo">B</div>
             {' '}
-            <span className="logo-text">anka</span>
+            <span className="logo-text">ank</span>
           </div>
 
           { Data.isadmin
